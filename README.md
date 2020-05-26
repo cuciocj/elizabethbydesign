@@ -1,4 +1,4 @@
-# ebd_vue_frontend
+# Elizabeth by Design
 
 ## Project setup
 ```

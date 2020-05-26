@@ -13,7 +13,9 @@
     <div>
       <ul>
         <li>
-          <router-link to="/">Home</router-link>
+          <a>
+            <router-link to="/">Home</router-link>
+          </a>
         </li>
         <li>
           <router-link to="/about_us">About Us</router-link>
@@ -38,7 +40,7 @@ nav {
   width: 100%;
   margin: 0 auto;
   background: #e9ecea;
-  padding: 40px 0 0 0;
+  padding: 10px 0 0 0;
 }
 
 nav ul {
@@ -54,7 +56,7 @@ nav ul li {
 
 nav ul li a {
   display: block;
-  padding: 40px 40px 15px;
+  padding: 30px 40px 10px;
   text-decoration: none;
   color: #aaa;
   text-transform: uppercase;
@@ -70,7 +72,7 @@ nav ul li a:before {
 }
 
 nav ul li a:hover {
-  color: #555;
+  color: #c8a338;
   text-decoration: none;
 }
 
@@ -98,6 +100,7 @@ nav.stroke ul li a:hover:after {
 nav div.nav-header-logo {
   text-align: center;
 }
+
 </style>
 
 <script>

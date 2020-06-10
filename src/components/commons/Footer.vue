@@ -46,7 +46,7 @@ footer {
 }
 
 footer div {
-  /* border: 1px solid black; */
+  border: 1px solid black;
 }
 
 div.contact {
@@ -58,6 +58,8 @@ div.contact {
 div.contact h6 {
   padding: 0 10px;
   margin: 0 0 6px 0;
+  color: #b09545;
+  font-weight: bold;
 }
 
 div.details ul {
@@ -68,11 +70,6 @@ div.details ul {
 
 div.details ul li {
   margin-bottom: 3px;
-}
-
-h6 {
-  color: #b09545;
-  font-weight: bold;
 }
 
 div#social,

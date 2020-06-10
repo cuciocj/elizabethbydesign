@@ -5,7 +5,6 @@
         v-bind:src="logo"
         fluid alt="logo"
         contain
-        height="70"
         width="200"
         >
       </b-img>
@@ -47,6 +46,7 @@ nav ul {
   list-style: none;
   text-align: center;
   padding: 0px;
+  margin-bottom: 0;
 }
 
 nav ul li {

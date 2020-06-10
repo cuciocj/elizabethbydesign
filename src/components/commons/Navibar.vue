@@ -1,91 +1,104 @@
 <template>
-  <header role="banner">
-    <b-img
-    id="logo-main"
-      v-bind:src="logo"
-      fluid alt="logo"
-      contain
-      width="200"
-    >
-    </b-img>
-    <b-navbar id="navbar-primary" class="navbar-default" toggleable="md">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <b-navbar-toggle target="navbar-primary-collapse"></b-navbar-toggle>
-        </div>
-        <b-collapse id="navbar-primary-collapse" class="navbar-collapse" is-nav>
-          <ul class="navbar-nav">
-            <li>
-              <router-link to="/">Home</router-link>
-            </li>
-            <li>
-              <router-link to="/about_us">About Us</router-link>
-            </li>
-            <li>
-              <router-link to="/where">Where are you Going?</router-link>
-            </li>
-            <li>
-              <router-link to="/style">Understanding your Style</router-link>
-            </li>
-            <li>
-              <router-link to="/design">Design</router-link>
-            </li>
-            <li>
-              <router-link to="/contact_us">Contact Us</router-link>
-            </li>
-          </ul>
-        </b-collapse>
-      </div>
-    </b-navbar>
-  </header>
+  <nav class="nav-header">
+    <div class="nav-header-logo">
+      <b-img
+        v-bind:src="logo"
+        fluid alt="logo"
+        contain
+        width="200"
+        >
+      </b-img>
+    </div>
+    <div>
+      <ul>
+        <li>
+          <a>
+            <router-link to="/">Home</router-link>
+          </a>
+        </li>
+        <li>
+          <router-link to="/about_us">About Us</router-link>
+        </li>
+        <li>
+          <router-link to="/where">Where are you Going?</router-link>
+        </li>
+        <li>
+          <router-link to="/style">Understanding your Style</router-link>
+        </li>
+        <li>
+          <router-link to="/contact_us">Contact Us</router-link>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </template>
 
 <style>
 
-header[role="banner"] #logo-main {
-  display: block;
-  margin: 20px auto;
-}
-
-.navbar-nav {
-    display: inline-block;
-    flex-direction: column;
-    padding-left: 0;
-    margin-bottom: 0;
-}
-
-#navbar-primary.navbar-default {
-  background: transparent;
-  border: none;
-}
-
-#navbar-primary.navbar-default .navbar-nav {
+nav {
   width: 100%;
+  margin: 0 auto;
+  background: #e9ecea;
+  padding: 10px 0 0 0;
+}
+
+nav ul {
+  list-style: none;
   text-align: center;
+  padding: 0px;
+  margin-bottom: 0;
 }
 
-#navbar-primary.navbar-default .navbar-nav > li {
+nav ul li {
   display: inline-block;
-  float: none;
-  padding: 15px 30px;
+  max-width: 300px;
 }
 
-#navbar-primary.navbar-default .navbar-nav > li a {
+nav ul li a {
+  display: block;
+  padding: 30px 40px 10px;
   text-decoration: none;
-  color: #777;
+  color: #aaa;
+  text-transform: uppercase;
+  margin: 0 20px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-#navbar-primary.navbar-default .navbar-nav > li a:hover {
-  color: #c8a338;
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+  transition: all 0.5s;
 }
 
-#navbar-primary.navbar-default .navbar-nav > li a,
-#navbar-primary.navbar-default .navbar-nav > li a:after,
-#navbar-primary.navbar-default .navbar-nav > li a:before {
-  transition: all 0.5s;
+nav ul li a:hover {
+  color: #c8a338;
+  text-decoration: none;
+}
+
+nav.nav-header ul li a {
+  position: relative;
+}
+
+nav.nav-header ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: ".";
+  color: transparent;
+  background: #aaa;
+  height: 1px;
+}
+
+nav.stroke ul li a:hover:after {
+  width: 100%;
+}
+
+nav div.nav-header-logo {
+  text-align: center;
 }
 
 </style>

@@ -1,7 +1,7 @@
 <template>
   <header role="banner">
     <b-img
-    id="logo-main"
+      id="logo-main"
       v-bind:src="logo"
       fluid alt="logo"
       contain
@@ -86,6 +86,13 @@ header[role="banner"] #logo-main {
 #navbar-primary.navbar-default .navbar-nav > li a:after,
 #navbar-primary.navbar-default .navbar-nav > li a:before {
   transition: all 0.5s;
+}
+
+#navbar-primary.navbar-default .navbar-nav > li:hover,
+#navbar-primary.navbar-default .navbar-nav > li.router-link-active,
+#navbar-primary.navbar-default .navbar-nav > li.router-link-exact-active {
+  background-color: rgb(229, 228, 228);
+  cursor: pointer;
 }
 
 </style>

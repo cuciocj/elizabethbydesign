@@ -9,7 +9,7 @@
   height: 50vh
 }
 
-h1 {
+.style-content h1 {
   text-align: center;
   margin-top: 60px;
 }

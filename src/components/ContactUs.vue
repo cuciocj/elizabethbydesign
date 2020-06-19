@@ -1,5 +1,4 @@
 <template>
-
   <div class="contact-content">
     <div class="img-overlay">
       <div class="project-overlay">
@@ -83,7 +82,7 @@
               <div>
                 <b-button v-b-modal.modal-1>Next</b-button>
                 <b-modal id="modal-1" title="BootstrapVue">
-                  <p class="my-4">Hello from modal!</p>
+                  <p class="my-4">This will be the form for customer information</p>
                 </b-modal>
               </div>
             </b-form>
@@ -141,6 +140,10 @@ div.col {
     rgba(255, 0, 0, 0.45),
     rgba(255, 0, 0, 0.45)
   );
+}
+
+.modal-backdrop{
+  opacity: 0.5;
 }
 </style>
 

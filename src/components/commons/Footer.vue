@@ -26,24 +26,24 @@
           <h6>Links</h6>
           <ul class="footer-links">
             <li>
-              <a href="http://www.facebook.com">Facebook</a>
+              <span class="mdi mdi-facebook"></span> <a href="http://www.facebook.com">Facebook</a>
             </li>
             <li>
-              <a href="http://www.instagram.com">Instagram</a>
+              <span class="mdi mdi-instagram"></span> <a href="http://www.instagram.com">Instagram</a>
             </li>
             <li>
-              <a href="http://www.twitter.com">Twitter</a>
+              <span class="mdi mdi-twitter"></span> <a href="http://www.twitter.com">Twitter</a>
             </li>
             <li>
-              <!-- <i class="fas fa-envelope mr-3"></i> -->
-              <a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a>
+              <span class="mdi mdi-information-variant"></span> <a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a>
             </li>
             <li>
-              <a href="http://scanfcode.com/sitemap/">Sitemap</a>
+              <span class="mdi mdi-map-marker"></span> <a href="http://scanfcode.com/sitemap/">Sitemap</a>
             </li>
           </ul>
         </div>
 
+        <!-- TODO: overlay over logo -->
         <div class="col-sm-12 col-md-6">
           <b-img id="logo-footer" v-bind:src="logo" fluid alt="logo" contain width="400"></b-img>
           <!-- <p class="text-justify">

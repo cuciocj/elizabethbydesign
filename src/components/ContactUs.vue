@@ -18,11 +18,11 @@
     </div>
     <b-container>
       <b-row>
-        <div class="text-center">
-          <h2>Contact Uss</h2>
+        <div class="mx-auto">
+          <h2>Contact Us</h2>
           <div class="calendly-inline-widget"
             data-url="https://calendly.com/cuciocj/60min"
-            style="min-width:1000px;height:800px;">
+            style="min-width:650px;height:900px;">
           </div>
         </div>
       </b-row>
@@ -81,9 +81,6 @@
               </b-form-group>
               <div>
                 <b-button v-b-modal.modal-1>Next</b-button>
-                <b-modal id="modal-1" title="BootstrapVue">
-                  <p class="my-4">This will be the form for customer information</p>
-                </b-modal>
               </div>
             </b-form>
           </div>
@@ -98,6 +95,9 @@
       </b-row>
       <h1></h1>
     </b-container>
+    <b-modal id="modal-1" title="BootstrapVue">
+      <p class="my-4">This will be the form for customer information</p>
+    </b-modal>
   </div>
 </template>
 
@@ -143,7 +143,7 @@ div.col {
 }
 
 .modal-backdrop{
-  opacity: 0.5;
+  opacity: 0.9;
 }
 </style>
 

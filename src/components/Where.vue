@@ -1,20 +1,75 @@
 <template>
-  <div class="where-content">
-      <div>
-        <b-card no-body>
-          <b-tabs pills card vertical nav-wrapper-class="w-25">
-            <b-tab title="Tab 1" active><b-card-text>Tab contents 1</b-card-text></b-tab>
-            <b-tab title="Tab 2"><b-card-text>Tab contents 2</b-card-text></b-tab>
-            <b-tab title="Tab 3"><b-card-text>Tab contents 3</b-card-text></b-tab>
-          </b-tabs>
-        </b-card>
-      </div>
-  </div>
+  <b-container fluid>
+    <b-row>
+      <!-- Navbar -->
+      <b-col cols="4">
+        <b-list-group v-b-scrollspy:listgroup-ex>
+          <b-list-group-item href="#list-item-1">Item 1</b-list-group-item>
+          <b-list-group-item href="#list-item-2">Item2</b-list-group-item>
+          <b-list-group-item href="#list-item-3">Item 3</b-list-group-item>
+          <b-list-group-item href="#list-item-4">Item 4</b-list-group-item>
+          <b-list-group-item href="#list-item-5">Item 5</b-list-group-item>
+        </b-list-group>
+      </b-col>
+      <!-- This one is the contet -->
+      <b-col cols="8">
+        <div id="listgroup-ex" style="position:relative; overflow-y:auto; height:300px">
+          <h4 id="list-item-1">Item 1</h4>
+          <!-- This is my example -->
+            <b-row>
+              <b-col>
+                <img width="500" height="300" src="../assets/proof.jpg">
+              </b-col>
+              <b-col>
+                <img width="500" height="300" src="../assets/proof.jpg">
+              </b-col>
+              <b-col>
+                <img width="500" height="300" src="../assets/proof.jpg">
+              </b-col>
+              <b-col>
+                <img width="500" height="300" src="../assets/proof.jpg">
+              </b-col>
+              <b-col>
+                <img width="500" height="300" src="../assets/proof.jpg">
+              </b-col>
+            </b-row>
+          <h4 id="list-item-2">Item 2</h4>
+          <!-- Text is in data and it is just an example -->
+          <p>{{ text }}</p>
+          <h4 id="list-item-3">Item 3</h4>
+          <p>{{ text }}</p>
+          <h4 id="list-item-4">Item 4</h4>
+          <p>{{ text }}</p>
+          <h4 id="list-item-5">Item 5</h4>
+          <p>{{ text }}</p>
+        </div>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
+
+<script>
+  export default {
+    data() {
+      return {
+        text: `
+          Quis magna Lorem anim amet ipsum do mollit sit cillum voluptate ex nulla
+          tempor. Laborum consequat non elit enim exercitation cillum aliqua
+          consequat id aliqua. Esse ex consectetur mollit voluptate est in duis
+          laboris ad sit ipsum anim Lorem. Incididunt veniam velit elit elit veniam
+          Lorem aliqua quis ullamco deserunt sit enim elit aliqua esse irure. Laborum
+          nisi sit est tempor laborum mollit labore officia laborum excepteur
+          commodo non commodo dolor excepteur commodo. Ipsum fugiat ex est consectetur
+          ipsum commodo tempor sunt in proident.
+        `
+      }
+    }
+  }
+</script>
 
 <style>
 .where-content {
-  height: 50vh
+  
 }
 
 .where-content h1 {

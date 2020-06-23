@@ -8,4 +8,9 @@
 .design-content {
   height: 50vh;
 }
+
+.design-content h1 {
+  text-align: center;
+  margin-top: 60px;
+}
 </style>

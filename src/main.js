@@ -1,3 +1,4 @@
+import '@mdi/font/css/materialdesignicons.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import BootstrapVue from 'bootstrap-vue';
 import Vue from 'vue';

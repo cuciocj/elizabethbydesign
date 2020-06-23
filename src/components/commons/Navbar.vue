@@ -29,7 +29,7 @@
               <router-link to="/style">Understanding your Style</router-link>
             </li>
             <li>
-              <router-link to="/design">Design</router-link>
+              <router-link to="/measurements">Measurements</router-link>
             </li>
             <li>
               <router-link to="/contact_us">Contact Us</router-link>

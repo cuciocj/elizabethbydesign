@@ -152,6 +152,5 @@
     top: 20%;
     left:5%;
     width: 90%; */
-    font-size:25px;
   }
 </style>

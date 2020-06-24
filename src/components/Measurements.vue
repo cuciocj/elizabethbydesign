@@ -1,16 +1,20 @@
 <template>
-  <div class="design-content">
-    <h1>DESIGN</h1>
-  </div>
+  <b-container>
+    <b-row class="intro">
+
+    </b-row>
+  </b-container>
 </template>
 
-<style>
-.design-content {
-  height: 50vh;
+<script>
+export default {
+  
 }
+</script>
 
-.design-content h1 {
-  text-align: center;
-  margin-top: 60px;
-}
+<style scoped>
+  .intro{
+    border: solid black;
+  }
+
 </style>

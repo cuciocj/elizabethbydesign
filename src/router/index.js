@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../components/Home.vue';
-import AboutUs from '../components/AboutUs.vue';
-import Where from '../components/Where.vue';
-import Style from '../components/Style.vue';
-import Measurements from '../components/Measurements.vue';
-import ContactUs from '../components/ContactUs.vue';
+import Home from '@/views/Home.vue';
+import AboutUs from '@/views/AboutUs.vue';
+import Where from '@/views/Where.vue';
+import Style from '@/views/Style.vue';
+import Measurements from '@/views/Measurements.vue';
+import ContactUs from '@/views/ContactUs.vue';
 
 Vue.use(VueRouter);
 

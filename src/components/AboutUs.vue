@@ -1,8 +1,81 @@
 <template>
   <div class="about-content">
+    <br><br>
+
+
+        <v-row >
+          <v-col class="ml-auto" cols="3">
+            <v-avatar color="indigo">
+              <v-icon dark>mdi-account-circle</v-icon>
+            </v-avatar>
+              <v-avatar color="indigo">
+              <v-icon dark>mdi-account-circle</v-icon>
+            </v-avatar>
+            <v-avatar size="200" right>
+              <img
+                src="../assets/kerry.png"
+                alt="John"
+              >
+            </v-avatar>
+          </v-col>
+          <v-col class="justify-space-around" cols="6">
+            <div class="card-1">
+              <div class="card-body">
+                <h5 class="card-title-1">Hello! My name is Kerry Elizabeth Mitchell (Nee Brennan). </h5>
+                <br>
+                <p class="card-text"> I am 62 years young and  I want to share with you my story and why 
+                  I have developed such a drive and passion for designing and creating clothing for the mature woman.
+                  <br><br>
+                  At the age of just 12 years of age my grandmother Elizabeth Brennan, sat me down in front of an
+                   old Singer treadmill sewing machine and helped me to make my very first garment. 
+                   It was my high school uniform, complete with boxed pleats and insert pockets. 
+                   My Grandma guided and encouraged me every step of the way.  
+                   I thought I was the cleverest person alive.<br><br>
+
+                   I remember the feeling of amazement knowing that I had created this garment from
+                    what had started out as a flat piece of woven cloth. My love of sewing grew from 
+                    there. Over the years I have made many garments for myself, family and friends. 
+                    Designing and  sewing was not to be a career pathway but rather a much loved 
+                    hobby that I was very good at.<br><br>
+
+                    My career took me to the education sector and then to the corporate world where I
+                     facilitated meetings, spoke at conferences, and worked with people every day. 
+                     I always needed to look my best.<br><br>
+
+                     My greatest joy is to design and make the clothing I wear. Whether it be an outfit
+                    to go to work, go to a party, go dancing or go away on holiday.
+                    I love the challenge of working out styling, colours, and fabrics.
+                    I always feel great in the outfits I create and that is because I 
+                    know what works for me.<br><br>
+
+                    My friends tell me that as they have aged, it has become harder to find 
+                    styles that work for them. A walk through any shopping area will show 
+                    that many shops cater for the young woman and at best make a poor attempt
+                     to cater for the mature woman. Clothing is either completely the wrong style
+                      and shape for the mature woman or what is available is dull, baggy and not made 
+                      to show off our best features.<br><br>
+
+                      The lack of beautifully designed clothing for the mature woman has led me back 
+                      to my love of sewing and design but with the more mature woman in mind. 
+                      I get great joy in working with a woman to work out what garments she 
+                      requires, the styles and colours that will work and then being able to 
+                      create a bespoke garment for her.<br><br>
+
+                      The mature woman deserves to look fabulous and together we can achieve your
+                       own style of fabulous.  I would be delighted to offer my services to work 
+                       with you to design and create clothing that can take the mature woman 
+                       anywhere she wants to go!
+                </p>
+              </div>
+            </div>
+          </v-col>
+          <v-col cols="2">
+          </v-col>
+        </v-row>
+
     
-      <v-container fluid> 
-        <v-timeline>
+
+        <v-timeline class="project-about-timeline">
           <v-timeline-item color="#c8a338" large>
           <template v-slot:opposite>
             <span></span>
@@ -69,12 +142,31 @@
         </v-timeline-item>
        
       </v-timeline>
-    </v-container>
+
   </div>
 </template>
 
 <style>
+.about-content .project-about >  {
+  text-align: center;
+  font-size: 5vw;
+  font-weight: bold;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin-top: 15vw;
+}
 
+
+div.card-1 {
+  border: 4px solid #e9ecea;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+  "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  
+}
+
+.card-title-1{
+  color: #c8a338;
+}
 
 
 </style>

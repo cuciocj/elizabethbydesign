@@ -20,16 +20,17 @@
       <b-row>
         <div class="mx-auto">
           <h2>Contact Us</h2>
-          <div class="calendly-inline-widget"
+          <div
+            class="calendly-inline-widget"
             data-url="https://calendly.com/cuciocj/60min"
-            style="min-width:650px;height:900px;">
-          </div>
+            style="min-width:650px;height:1000px;"
+          ></div>
         </div>
       </b-row>
       <b-row>
         <b-col>
           <div class="contact-survey-form">
-            <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+            <b-form v-if="show">
               <b-form-group
                 id="input-group-survey1"
                 label="1. What type of garment would you like to have designed and made for you?"
@@ -39,8 +40,8 @@
                   id="input-survey-1"
                   v-model="form.survey1"
                   placeholder="Answer 1"
-                  required>
-                </b-form-input>
+                  required
+                ></b-form-input>
               </b-form-group>
               <b-form-group
                 id="input-group-survey2"
@@ -51,8 +52,8 @@
                   id="input-survey-2"
                   v-model="form.survey2"
                   placeholder="Answer 2"
-                  required>
-                </b-form-input>
+                  required
+                ></b-form-input>
               </b-form-group>
               <b-form-group
                 id="input-group-survey3"
@@ -63,8 +64,8 @@
                   id="input-survey-3"
                   v-model="form.survey3"
                   placeholder="Answer 3"
-                  required>
-                </b-form-input>
+                  required
+                ></b-form-input>
               </b-form-group>
               <b-form-group
                 id="input-group-survey4"
@@ -76,8 +77,8 @@
                   id="input-survey-4"
                   v-model="form.survey4"
                   placeholder="Answer 4"
-                  required>
-                </b-form-input>
+                  required
+                ></b-form-input>
               </b-form-group>
               <div>
                 <b-button v-b-modal.modal-1>Next</b-button>
@@ -95,8 +96,41 @@
       </b-row>
       <h1></h1>
     </b-container>
-    <b-modal id="modal-1" title="BootstrapVue">
-      <p class="my-4">This will be the form for customer information</p>
+    <!-- modal -->
+    <b-modal id="modal-1" size="lg" title="Contact Details">
+      <b-form v-if="show">
+        <b-row>
+          <b-col>
+            <b-form-input
+              id="input-firstname"
+              v-model="form.firstname"
+              type="text"
+              required
+              placeholder="First Name"
+            ></b-form-input>
+          </b-col>
+          <b-col>
+            <b-form-input
+              id="input-lastname"
+              v-model="form.lastname"
+              type="text"
+              required
+              placeholder="Last Name"
+            ></b-form-input>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col>
+            <b-form-input
+              id="input-email"
+              v-model="form.email"
+              type="email"
+              required
+              placeholder="Email"
+            ></b-form-input>
+          </b-col>
+        </b-row>
+      </b-form>
     </b-modal>
   </div>
 </template>
@@ -142,7 +176,7 @@ div.col {
   );
 }
 
-.modal-backdrop{
+.modal-backdrop {
   opacity: 0.9;
 }
 </style>
@@ -152,45 +186,29 @@ export default {
   data() {
     return {
       form: {
-        email: '',
-        name: '',
-        food: null,
-        checked: [],
+        survey1: "",
+        survey2: "",
+        survey3: "",
+        survey4: "" 
       },
-      foods: [
-        { text: 'Select One', value: null },
-        'Carrots',
-        'Beans',
-        'Tomatoes',
-        'Corn',
-      ],
-      show: true,
+      show: true
     };
   },
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
-      // eslint-disable-next-line no-alert
       alert(JSON.stringify(this.form));
-    },
-    onReset(evt) {
-      evt.preventDefault();
-      // Reset our form values
-      this.form.email = '';
-      this.form.name = '';
-      this.form.food = null;
-      this.form.checked = [];
-      // Trick to reset/clear native browser form validation state
-      this.show = false;
-      this.$nextTick(() => {
-        this.show = true;
-      });
-    },
+    }
   },
   mounted() {
-    const calendlyScript = document.createElement('script');
-    calendlyScript.setAttribute('src', 'https://assets.calendly.com/assets/external/widget.js');
+    const calendlyScript = document.createElement("script");
+    calendlyScript.setAttribute(
+      "src",
+      "https://assets.calendly.com/assets/external/widget.js"
+    );
     document.head.appendChild(calendlyScript);
-  },
+  }
 };
+
+
 </script>

@@ -4,10 +4,21 @@
       <div class="project-overlay">
         <h1>GET IN TOUCH</h1>
         <p class="text-center">
-          <span class="mdi mdi-facebook"></span>Once you are ready, you can make contact with Kerry.
+          Once you are ready, you can make contact with Kerry.
           You can call Kerry or email her with a preferred time to meet.
           Meetings can be online or face to face - depending on where you live.
         </p>
+        <div class="text-center">
+          <b-button
+            pill
+            size="lg"
+            variant="secondary"
+            onclick="Calendly.initPopupWidget({url: 'https://calendly.com/cuciocj/60min'});return false;"
+            class="calendly-btn"
+          >
+          Book an appointment with Kerry
+          </b-button>
+        </div>
       </div>
       <b-img
         id="bg-image"
@@ -17,127 +28,97 @@
       ></b-img>
     </div>
     <b-container>
-      <b-row>
-        <div class="mx-auto">
-          <h2>Contact Us</h2>
-          <div
-            class="calendly-inline-widget"
-            data-url="https://calendly.com/cuciocj/60min"
-            style="min-width:650px;height:1000px;"
-          ></div>
-        </div>
-      </b-row>
-      <b-row>
-        <b-col>
-          <div class="contact-survey-form">
-            <b-form v-if="show">
-              <b-form-group
-                id="input-group-survey1"
-                label="1. What type of garment would you like to have designed and made for you?"
-                label-for="input-survey-1"
-              >
-                <b-form-input
-                  id="input-survey-1"
-                  v-model="form.survey1"
-                  placeholder="Answer 1"
-                  required
-                ></b-form-input>
-              </b-form-group>
-              <b-form-group
-                id="input-group-survey2"
-                label="2. What is your average dress size?"
-                label-for="input-survey-2"
-              >
-                <b-form-input
-                  id="input-survey-2"
-                  v-model="form.survey2"
-                  placeholder="Answer 2"
-                  required
-                ></b-form-input>
-              </b-form-group>
-              <b-form-group
-                id="input-group-survey3"
-                label="3. When would you like to have your garment?"
-                label-for="input-survey-3"
-              >
-                <b-form-input
-                  id="input-survey-3"
-                  v-model="form.survey3"
-                  placeholder="Answer 3"
-                  required
-                ></b-form-input>
-              </b-form-group>
-              <b-form-group
-                id="input-group-survey4"
-                label="4. Do you know what colour and style you want???
-                  Or do you need some advice about colour and style?"
-                label-for="input-survey-4"
-              >
-                <b-form-input
-                  id="input-survey-4"
-                  v-model="form.survey4"
-                  placeholder="Answer 4"
-                  required
-                ></b-form-input>
-              </b-form-group>
-              <div>
-                <b-button v-b-modal.modal-1>Next</b-button>
-              </div>
-            </b-form>
-          </div>
-        </b-col>
-        <b-col>
-          <h1>Keep in touch with us</h1>
-          <p>
-            <i>Cat ipsum dolor sit amet</i> beatae quisquam sunt, or voluptas. Totam consequatur
-            elit.Beatae consequat ullam adipisicing iure aspernatur.
-          </p>
-        </b-col>
-      </b-row>
-      <h1></h1>
+      <div class="keep-touch">
+        <h4>Keep in touch with Kerry</h4>
+        <p style="margin: 2vw">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Illo pariatur quidem, quis modi iure nihil commodi suscipit,
+          corporis dicta adipisci, voluptatum quia cupiditate. Nulla
+          minus voluptatum nostrum deleniti, asperiores facere.
+        </p>
+        <b-row>
+          <b-col>
+            <b-card
+              border-variant="light"
+              header="Address"
+              header-border-variant="light"
+              align="center"
+              style="min-height: 10rem;"
+            >
+              <b-card-text>
+                203-271 Victoria Street West, Auckland CBD, Auckland 1010
+              </b-card-text>
+            </b-card>
+          </b-col>
+          <b-col>
+            <b-card
+              border-variant="light"
+              header="Mobile"
+              header-border-variant="light"
+              align="center"
+              style="min-height: 10rem;"
+            >
+              <b-card-text>
+                01 (800) 433 744<br>
+                (64) 22 987 6543
+              </b-card-text>
+            </b-card>
+          </b-col>
+          <b-col>
+            <b-card
+              border-variant="light"
+              header="Email"
+              header-border-variant="light"
+              align="center"
+              style="min-height: 10rem;"
+            >
+              <b-card-text class="keep-touch-links">
+                <a href="mailto:elizabethydesign@gmail.com">elizabethydesign@gmail.com</a>
+              </b-card-text>
+            </b-card>
+          </b-col>
+          <b-col>
+            <b-card
+              border-variant="light"
+              header="Social"
+              header-border-variant="light"
+              align="center"
+              style="min-height: 10rem;"
+            >
+              <b-card-text class="keep-touch-links">
+                <span class="mdi mdi-facebook"></span><a href="http://www.facebook.com">Facebook</a><br>
+                <span class="mdi mdi-instagram"></span><a href="http://www.instagram.com">Instagram</a><br>
+                <span class="mdi mdi-twitter"></span><a href="http://www.twitter.com">Twitter</a>
+              </b-card-text>
+            </b-card>
+          </b-col>
+        </b-row>
+      </div>
     </b-container>
-    <!-- modal -->
-    <b-modal id="modal-1" size="lg" title="Contact Details">
-      <b-form v-if="show">
-        <b-row>
-          <b-col>
-            <b-form-input
-              id="input-firstname"
-              v-model="form.firstname"
-              type="text"
-              required
-              placeholder="First Name"
-            ></b-form-input>
-          </b-col>
-          <b-col>
-            <b-form-input
-              id="input-lastname"
-              v-model="form.lastname"
-              type="text"
-              required
-              placeholder="Last Name"
-            ></b-form-input>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col>
-            <b-form-input
-              id="input-email"
-              v-model="form.email"
-              type="email"
-              required
-              placeholder="Email"
-            ></b-form-input>
-          </b-col>
-        </b-row>
-      </b-form>
-    </b-modal>
   </div>
 </template>
 
 <style>
 div.col {
   /* border: 1px solid black; */
+}
+
+div.keep-touch {
+  margin: 2vw;
+  color: #737373;
+}
+
+.keep-touch-links a {
+  text-decoration: none;
+  color: #737373;
+}
+
+div.keep-touch h4 {
+  margin: 2vw;
+}
+
+.calendly-btn {
+  margin-top: 2vw;
 }
 
 .contact-content .project-overlay > h1 {
@@ -156,11 +137,18 @@ div.col {
   margin: auto 15vw;
 }
 
-.img-overlay {
+div.keep-touch h4,
+p {
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.contact-content .img-overlay {
   position: relative;
 }
 
-.project-overlay {
+.contact-content .project-overlay {
   position: absolute;
   background-color: #b0954580;
   width: 100%;
@@ -189,7 +177,7 @@ export default {
         survey1: "",
         survey2: "",
         survey3: "",
-        survey4: "" 
+        survey4: ""
       },
       show: true
     };
@@ -201,6 +189,18 @@ export default {
     }
   },
   mounted() {
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    ></link>;
+    const linkAsset = document.createElement("link");
+    linkAsset.setAttribute(
+      "href",
+      "https://assets.calendly.com/assets/external/widget.css"
+    );
+    linkAsset.setAttribute("rel", "stylesheet");
+    document.head.appendChild(linkAsset);
+
     const calendlyScript = document.createElement("script");
     calendlyScript.setAttribute(
       "src",
@@ -209,6 +209,4 @@ export default {
     document.head.appendChild(calendlyScript);
   }
 };
-
-
 </script>

@@ -101,7 +101,7 @@
 
 .site-footer
 {
-  /* background-color:#26272b; */
+  background-color:#E9ECEA;
   padding:45px 0 20px;
   font-size:15px;
   line-height:24px;

@@ -10,14 +10,7 @@
             whether it be for casual, formal or work.
           </h4>
           <router-link to="/about_us">
-            <v-btn
-              class="parallax-btn" 
-              color="#FFFFFFe0"
-              min-height="70"
-              min-width="150"
-            >
-              More
-            </v-btn>
+            <v-btn class="parallax-btn" color="#FFFFFFe0" min-height="70" min-width="150">More</v-btn>
           </router-link>
         </v-col>
       </v-row>
@@ -26,10 +19,7 @@
     <div class="home-p">
       <p class="text-center">
         "At Elizabeth by Design, we work with mature
-        women to design a style that works for you.
-        We do not sell off the shelf garments. Rather
-        we design and make to measure. Each garment is
-        unique to your requirements."
+        women to design a style that works for you."
         <v-divider></v-divider>
       </p>
     </div>
@@ -38,18 +28,16 @@
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
           <h1 class="parallax-2 display-3 font-weight-thin m-5">Discover your personal style</h1>
-          <h4 class="parallax-sub1 subheading">
-            Ever felt that you have an overflowing wardrobe but nothing to wear?
-          </h4>
+          <h4
+            class="parallax-sub1 subheading"
+          >Ever felt that you have an overflowing wardrobe but nothing to wear?</h4>
           <router-link to="/style">
             <v-btn
-              class="parallax-btn" 
+              class="parallax-btn"
               color="#FFFFFFe0"
               min-height="70"
               min-width="150"
-            >
-              Let us help
-            </v-btn>
+            >Let us help</v-btn>
           </router-link>
         </v-col>
       </v-row>
@@ -85,12 +73,12 @@ a:hover {
 }
 
 .home-p {
-  background-color: #E9ECEA;
+  background-color: #e9ecea;
 }
 
 .home-p p.text-center {
-  font-size: 1.5vw;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+  font-size: 1vw;
+  font-family: Verdana, "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   padding: 8vw 15vw;
   margin-bottom: 0;
@@ -137,7 +125,7 @@ export default {
   data() {
     return {
       jumboImage: background1,
-      elderWoman: background2,
+      elderWoman: background2
     };
   }
 };

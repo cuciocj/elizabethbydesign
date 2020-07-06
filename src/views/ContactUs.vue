@@ -186,7 +186,7 @@ export default {
     onSubmit(evt) {
       evt.preventDefault();
       alert(JSON.stringify(this.form));
-    }
+    },
   },
   mounted() {
     <link

@@ -4,10 +4,10 @@
 
       <b-nav pills card-header align="center" slot="header" v-b-scrollspy:nav-scroller sticky>
         <b-nav-item  href="#list-item-1" @click="scrollIntoView">Casual Dresses</b-nav-item>
-        <b-nav-item  href="#list-item-2" @click="scrollIntoView">Casual Shorts</b-nav-item>
+        <b-nav-item  href="#list-item-2" @click="scrollIntoView">Casual Tops</b-nav-item>
         <b-nav-item  href="#list-item-3" @click="scrollIntoView">Coorporate dresses</b-nav-item>
         <b-nav-item  href="#list-item-4" @click="scrollIntoView">Formal Dresses</b-nav-item>
-        <b-nav-item  href="#list-item-5" @click="scrollIntoView">Formal Coat</b-nav-item>
+
       </b-nav>
 
       <b-card-body id="nav-scroller" class="my-content" ref="content" style="position:relative; height:500px;">

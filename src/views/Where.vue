@@ -15,7 +15,7 @@
             <h4 id="list-item-1">Casual Dresses</h4>
             <b-row style="width: 1650px;">
               <b-col>
-                <b-card no-body style="width: 540px;">
+                <b-card border-variant="light" no-body style="width: 540px;">
                   <b-row no-gutters>
                     <b-col md="6">
                       <b-card-img src="../assets/casual_photos/casual2.jpg"
@@ -32,7 +32,7 @@
                 </b-card>
               </b-col>
               <b-col>
-                <b-card no-body style="width: 540px;">
+                <b-card no-body border-variant="light" style="width: 540px;">
                   <b-row no-gutters>
                     <b-col md="6">
                       <b-card-img src="../assets/casual_photos/casual4.jpg"
@@ -49,7 +49,7 @@
                 </b-card>
               </b-col>
               <b-col>
-                <b-card no-body style="width: 540px;">
+                <b-card no-body border-variant="light" style="width: 540px;">
                   <b-row no-gutters>
                     <b-col md="6">
                       <b-card-img src="../assets/casual_photos/casual6.jpg"
@@ -70,7 +70,7 @@
             <h4 id="list-item-2">Casual Tops</h4>
             <b-row style="width: 1650px;">
               <b-col >
-                <b-card no-body style="width: 540px;">
+                <b-card no-body border-variant="light" style="width: 540px;">
                   <b-row no-gutters>
                     <b-col md="6">
                       <b-card-img src="../assets/casual_photos/casual7.jpg"
@@ -87,7 +87,7 @@
                 </b-card>
               </b-col>
               <b-col >
-                <b-card no-body style="width: 540px;">
+                <b-card no-body border-variant="light" style="width: 540px;">
                   <b-row no-gutters>
                     <b-col md="6">
                       <b-card-img src="../assets/casual_photos/casual8.jpg"
@@ -104,7 +104,7 @@
                 </b-card>
               </b-col>
               <b-col >
-                <b-card no-body style="width: 540px;">
+                <b-card no-body border-variant="light" style="width: 540px;">
                   <b-row no-gutters>
                     <b-col md="6">
                       <b-card-img src="../assets/casual_photos/casual10.jpg"
@@ -125,7 +125,7 @@
             <h4 id="list-item-3">Corporate</h4>
             <b-row style="width: 1650px;">
               <b-col>
-                <b-card no-body style="width: 540px;">
+                <b-card no-body border-variant="light" style="width: 540px;">
                   <b-row no-gutters>
                     <b-col md="6">
                       <b-card-img src="../assets/corp_photos/corp3.jpg"
@@ -142,7 +142,7 @@
                 </b-card>
               </b-col>
               <b-col>
-                <b-card no-body style="width: 540px;">
+                <b-card no-body border-variant="light" style="width: 540px;">
                   <b-row no-gutters>
                     <b-col md="6">
                       <b-card-img src="../assets/corp_photos/corp4.jpg"
@@ -163,7 +163,7 @@
             <h4 id="list-item-4">Formal</h4>
             <b-row style="width: 1650px;">
               <b-col>
-                <b-card no-body style="width: 540px;">
+                <b-card no-body border-variant="light" style="width: 540px;">
                   <b-row no-gutters>
                     <b-col md="6">
                       <b-card-img src="../assets/formal_photos/form2.jpg"
@@ -180,7 +180,7 @@
                 </b-card>
               </b-col>
               <b-col>
-                <b-card no-body style="width: 540px;">
+                <b-card no-body border-variant="light" style="width: 540px;">
                   <b-row no-gutters>
                     <b-col md="6">
                       <b-card-img src="../assets/formal_photos/form4.jpg"
@@ -197,7 +197,7 @@
                 </b-card>
               </b-col>
               <b-col>
-                <b-card no-body style="width: 540px;">
+                <b-card no-body border-variant="light" style="width: 540px;">
                   <b-row no-gutters>
                     <b-col md="6">
                       <b-card-img src="../assets/formal_photos/formcoat1.jpg"
@@ -331,14 +331,13 @@ export default {
     position: sticky;
     top: 0%;
     z-index: 1;
-
     background-color: #e9ecea;
   }
-
+ 
   .my-content{
     position:relative;
     overflow: scroll; /* Add the ability to scroll */
-    height:400px;
+    height:700px;
   }
 
   .my-content::-webkit-scrollbar {

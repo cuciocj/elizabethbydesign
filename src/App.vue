@@ -17,3 +17,10 @@ export default {
   },
 };
 </script>
+
+<style>
+  .container-fluid{
+    margin:0%;
+    padding:0%;
+  }
+</style>

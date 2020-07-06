@@ -16,5 +16,4 @@ export default {
   .intro{
     border: solid black;
   }
-
 </style>

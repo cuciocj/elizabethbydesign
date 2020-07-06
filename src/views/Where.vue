@@ -7,7 +7,6 @@
         <b-nav-item  href="#list-item-2" @click="scrollIntoView">Casual Tops</b-nav-item>
         <b-nav-item  href="#list-item-3" @click="scrollIntoView">Coorporate dresses</b-nav-item>
         <b-nav-item  href="#list-item-4" @click="scrollIntoView">Formal Dresses</b-nav-item>
-
       </b-nav>
 
       <b-card-body id="nav-scroller" class="my-content" ref="content" style="position:relative; height:500px;">
@@ -159,7 +158,6 @@
                   </b-row>
                 </b-card>
               </b-col>
-
             </b-row>
             <br>
             <h4 id="list-item-4">Formal</h4>
@@ -181,7 +179,7 @@
                   </b-row>
                 </b-card>
               </b-col>
-                            <b-col>
+              <b-col>
                 <b-card no-body style="width: 540px;">
                   <b-row no-gutters>
                     <b-col md="6">
@@ -198,7 +196,6 @@
                   </b-row>
                 </b-card>
               </b-col>
-
               <b-col>
                 <b-card no-body style="width: 540px;">
                   <b-row no-gutters>
@@ -216,7 +213,6 @@
                   </b-row>
                 </b-card>
               </b-col>
-
             </b-row>
             <br>
           </div>
@@ -316,8 +312,7 @@ export default {
   }
 
   .nav li a {
-     color: white;
-     background-color: #e9ecea;
+     color: black;
   }
   .nav li :hover{
      color: #b09545;

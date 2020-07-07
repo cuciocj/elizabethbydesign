@@ -38,12 +38,7 @@
         <fieldset class="intro-measurements">
           <legend class="intro-title-measurements">Did you take your measurements?</legend>
           <div id="measurements-button-wrapper" class="text-center">
-            <b-button
-              id="measurements-button"
-              @click="scrollToTop"
-            >
-              Book an appointment with Kerry
-            </b-button>
+            <v-btn id="measurements-button" class="parallax-btn" color="#FFFFFFe0" min-height="70" min-width="150">Book an appointment with Kerry</v-btn>
           </div>
         </fieldset>
       </b-col>
@@ -88,6 +83,10 @@ export default {
   .measurements-img{
     width: 100%;
   }
+  .measurements-img:hover{
+    box-shadow: 0px 0px 10px black;
+    cursor: pointer;
+  }
   .intro-measurements{
     border: solid 2px	#e9ecea;
   }
@@ -107,10 +106,6 @@ export default {
     margin:3% 0% 3% 0%;
   }
   #measurements-button{
-    background-color: #e9ecea;
-    border: transparent;
-    font-weight: bold;
-    color: #000000;
-    box-shadow: 2px 2px 4px black;
+    margin-top:0%;
   }
 </style>

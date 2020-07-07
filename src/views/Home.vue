@@ -3,12 +3,8 @@
     <v-parallax dark :src="jumboImage" height="600">
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
-          <h1 class="parallax-1 display-1 font-weight-thin m-5">Elizabeth by Design</h1>
-          <h4 class="parallax-sub1 subheading">
-            Welcome to Elizabeth by Design,
-            where we work with you to create your perfect outfit,
-            whether it be for casual, formal or work.
-          </h4>
+          <h1 class="parallax-1 display-1 font-weight-thin m-5">{{ welcomeJumbotron.header }}</h1>
+          <h4 class="parallax-sub1 subheading">{{ welcomeJumbotron.subheader }}</h4>
           <router-link to="/about_us">
             <v-btn class="parallax-btn" color="#FFFFFFe0" min-height="70" min-width="150">More</v-btn>
           </router-link>
@@ -118,6 +114,7 @@ a:hover {
 </style>
 
 <script>
+import axios from 'axios';
 import background1 from "@/assets/home1.jpg";
 import background2 from "@/assets/home2.jpg";
 
@@ -125,8 +122,29 @@ export default {
   data() {
     return {
       jumboImage: background1,
-      elderWoman: background2
+      elderWoman: background2,
+      welcomeJumbotron: {
+        header: '',
+        subheader: '',
+      }
     };
+  },
+  methods: {
+    getHomeInfo() {
+      const endpoint = 'http://localhost:5000/home';
+      axios.get(endpoint)
+        .then((res) => {
+          console.log(res.data);
+          this.welcomeJumbotron.header = res.data.welcome_jumbotron.header;
+          this.welcomeJumbotron.subheader = res.data.welcome_jumbotron.subheader;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+  },
+  created() {
+    this.getHomeInfo();
   }
 };
 </script>

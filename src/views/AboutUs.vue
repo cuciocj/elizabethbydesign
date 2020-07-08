@@ -1,5 +1,5 @@
 <template>
-  <div class="about-content">
+  <b-container class="about-content">
     <br><br>
       <v-row no-gutters>
         <v-col md="6">
@@ -76,11 +76,11 @@
           </v-col>
           <v-col md="">
           </v-col>
-            <v-col md="6">
-              <v-img
-                :src="require('@/assets/aboutme.png')"
-                height="100vh"/>
-            </v-col>
+          <v-col md="6">
+            <v-img
+              :src="require('@/assets/aboutme.png')"
+              height="100vh"/>
+          </v-col>
       </v-row>
 
       <v-row no-gutters>
@@ -143,12 +143,11 @@
         </b-card-text>
       </b-card>
 
-    <v-timeline class="project-about-timeline">
+    <v-timeline dense>
+
        <v-timeline-item color="#c8a338" large>
-          <template v-slot:opposite>
-          </template>
           <v-card class="elevation-2">
-          <v-card-title class="headline" >Step One: Getting Started</v-card-title>
+            <v-card-title class="headline" >Step One: Getting Started</v-card-title>
             <v-card-text>
               You might like to start by  going to our <b>Understanding of Your Style page</b>.
               This page asks some questions and provides guidance about knowing what works for you.<br><br>
@@ -159,52 +158,38 @@
               Once you are ready, use our <b>Get In Touch</b> page to make contact with Kerry. You can call Kerry or email her with a preferred time to meet. Meetings can be online or face to face - depending on where you live.
             </v-card-text>
           </v-card>
-       </v-timeline-item>
+        </v-timeline-item>
 
         <v-timeline-item color="#c8a338" large>
-          <template v-slot:opposite>
-            <span></span>
-          </template>
           <v-card class="elevation-2">
             <v-card-title class="headline">Step Two: Design Phase</v-card-title>
-              <v-card-text>
-                Meet with Kerry either face to face or online. 
-                Allow about an hour to talk through the style colours, fabrics for your 
-                garment. At this time we will take your body measurements. <br><br>
-                Kerry will provide you with drawings of the garment for your approval. 
-                Once approved Kerry will make up a mockup of the garment, if you choose
-                this option (recommended for formal dresses, coats and casual dresses).
-              </v-card-text>
+            <v-card-text>
+              Meet with Kerry either face to face or online. 
+              Allow about an hour to talk through the style colours, fabrics for your 
+              garment. At this time we will take your body measurements. <br><br>
+              Kerry will provide you with drawings of the garment for your approval. 
+              Once approved Kerry will make up a mockup of the garment, if you choose
+              this option (recommended for formal dresses, coats and casual dresses).
+            </v-card-text>
           </v-card>
         </v-timeline-item>
 
         <v-timeline-item color="#c8a338" large>
-          <template v-slot:opposite>
-            <span></span>
-          </template>
           <v-card class="elevation-2">
             <v-card-title class="headline">Step Three: Creation of the Garment </v-card-title>
-              <v-card-text>
-                Once we are confident we have the right style and we know the fabric we will use, 
-                Kerry will create your garment. A final fitting is recommended before completion. 
-              </v-card-text>
+            <v-card-text>
+              Once we are confident we have the right style and we know the fabric we will use, 
+              Kerry will create your garment. A final fitting is recommended before completion. 
+            </v-card-text>
             </v-card>
         </v-timeline-item>
+        
       </v-timeline>
 
-  </div>
+  </b-container>
 </template>
 
 <style>
-.about-content .project-about >  {
-  text-align: center;
-  font-size: 5vw;
-  font-weight: bold;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  margin-top: 15vw;
-}
-
 
 div.card-1 {
   border: 4px solid #e9ecea;

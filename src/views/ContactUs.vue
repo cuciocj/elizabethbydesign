@@ -118,26 +118,6 @@ export default {
       alert(JSON.stringify(this.form));
     },
   },
-  mounted() {
-    <link
-      href="https://assets.calendly.com/assets/external/widget.css"
-      rel="stylesheet"
-    ></link>;
-    const linkAsset = document.createElement("link");
-    linkAsset.setAttribute(
-      "href",
-      "https://assets.calendly.com/assets/external/widget.css"
-    );
-    linkAsset.setAttribute("rel", "stylesheet");
-    document.head.appendChild(linkAsset);
-
-    const calendlyScript = document.createElement("script");
-    calendlyScript.setAttribute(
-      "src",
-      "https://assets.calendly.com/assets/external/widget.js"
-    );
-    document.head.appendChild(calendlyScript);
-  }
 };
 </script>
 

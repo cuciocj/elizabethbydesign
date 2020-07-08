@@ -44,4 +44,7 @@ export default new VueRouter({
       component: ContactUs,
     },
   ],
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 });

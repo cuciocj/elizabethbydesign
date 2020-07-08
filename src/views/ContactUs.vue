@@ -73,7 +73,7 @@
               style="min-height: 10rem;"
             >
               <b-card-text class="keep-touch-links">
-                <a href="mailto:elizabethydesign@gmail.com">elizabethydesign@gmail.com</a>
+                <a class="email" href="mailto:elizabethydesign@gmail.com">elizabethydesign@gmail.com</a>
               </b-card-text>
             </b-card>
           </b-col>
@@ -97,6 +97,48 @@
     </b-container>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      form: {
+        survey1: "",
+        survey2: "",
+        survey3: "",
+        survey4: ""
+      },
+      show: true
+    };
+  },
+  methods: {
+    onSubmit(evt) {
+      evt.preventDefault();
+      alert(JSON.stringify(this.form));
+    },
+  },
+  mounted() {
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    ></link>;
+    const linkAsset = document.createElement("link");
+    linkAsset.setAttribute(
+      "href",
+      "https://assets.calendly.com/assets/external/widget.css"
+    );
+    linkAsset.setAttribute("rel", "stylesheet");
+    document.head.appendChild(linkAsset);
+
+    const calendlyScript = document.createElement("script");
+    calendlyScript.setAttribute(
+      "src",
+      "https://assets.calendly.com/assets/external/widget.js"
+    );
+    document.head.appendChild(calendlyScript);
+  }
+};
+</script>
 
 <style>
 div.col {
@@ -167,46 +209,8 @@ p {
 .modal-backdrop {
   opacity: 0.9;
 }
+
+.email{
+  font-size: 95%;
+}
 </style>
-
-<script>
-export default {
-  data() {
-    return {
-      form: {
-        survey1: "",
-        survey2: "",
-        survey3: "",
-        survey4: ""
-      },
-      show: true
-    };
-  },
-  methods: {
-    onSubmit(evt) {
-      evt.preventDefault();
-      alert(JSON.stringify(this.form));
-    },
-  },
-  mounted() {
-    <link
-      href="https://assets.calendly.com/assets/external/widget.css"
-      rel="stylesheet"
-    ></link>;
-    const linkAsset = document.createElement("link");
-    linkAsset.setAttribute(
-      "href",
-      "https://assets.calendly.com/assets/external/widget.css"
-    );
-    linkAsset.setAttribute("rel", "stylesheet");
-    document.head.appendChild(linkAsset);
-
-    const calendlyScript = document.createElement("script");
-    calendlyScript.setAttribute(
-      "src",
-      "https://assets.calendly.com/assets/external/widget.js"
-    );
-    document.head.appendChild(calendlyScript);
-  }
-};
-</script>

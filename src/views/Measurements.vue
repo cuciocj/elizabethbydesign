@@ -1,36 +1,88 @@
 <template>
   <b-container>
-    <b-row class="justify-content-md-center">
+    <b-row id="here" class="justify-content-md-center">
       <b-col class="title-row-col" cols="6">
         <h2 id="my-title">Take your measurements</h2>
       </b-col>
     </b-row>
+    <b-row class="zero-row justify-content-md-center">
+      <b-col class="first-row-col" cols="8">
+        <fieldset class="intro">
+          <p class="intro-text">
+            Ideally Kerry will meet with you to take your body measurements. However, if we need to do 
+            the measurement remotely the guidelines below will help you take accurate measurements. Kerry 
+            will be online and guiding you through the process.
+          </p>
+        </fieldset>
+      </b-col>
+    </b-row>
+    <b-row class="justify-content-md-center">
+      <b-col class="first-row-col" cols="4">
+        <fieldset class="intro">
+          <legend class="intro-title">Get help</legend>
+          <p class="intro-text">
+            Stand in front of a mirror and have someone on standby to assist you
+            (especially for those back measurements.)
+          </p>
+        </fieldset>
+      </b-col>
+      <b-col class="first-row-col" cols="4">
+        <fieldset class="intro">
+          <legend class="intro-title">Use the right tape</legend>
+          <p class="intro-text">
+            Keep your wardrobe space for garments you absolutely love. Get rid of the rest.
+          </p>
+        </fieldset>
+      </b-col>
+    </b-row>
+    <b-row class="justify-content-md-center">
+      <b-col class="first-row-col" cols="4">
+        <fieldset class="intro">
+          <legend class="intro-title">Decide your bra</legend>
+          <p class="intro-text">
+            Your bust level and circumference measurement will change depending on the style of bra 
+            you wear, so if you plan on wearing a bra with your finished garment, make sure you wear 
+            the same style bra during the measuring process.
+          </p>
+        </fieldset>
+      </b-col>
+      <b-col class="first-row-col" cols="4">
+        <fieldset class="intro">
+          <legend class="intro-title">Check your posture</legend>
+          <p class="intro-text">
+            Stand upright in a relaxed position with your feet together. When measuring, breathe normally 
+            and make sure the tape is comfortably fitted to the body. (Don't suck in that tummy - 
+            you will just end up with a tight-fitting garment!)
+          </p>
+        </fieldset>
+      </b-col>
+    </b-row>    
     <b-row class="first-row justify-content-md-center">
       <b-col class="first-row-col" cols="3">
-        <b-img class="measurements-img" src="../assets/measurements1.png"></b-img>
+        <b-img v-b-modal.modal-1 class="measurements-img" src="../assets/measurements1.png"></b-img>
       </b-col>
       <b-col class="first-row-col" cols="3">
-        <b-img class="measurements-img" src="../assets/measurements2.png"></b-img>
+        <b-img v-b-modal.modal-2 class="measurements-img" src="../assets/measurements2.png"></b-img>
       </b-col>
       <b-col class="first-row-col" cols="3">
-        <b-img class="measurements-img" src="../assets/measurements3.png"></b-img>
+        <b-img v-b-modal.modal-3 class="measurements-img" src="../assets/measurements3.png"></b-img>
       </b-col>
     </b-row>
     <b-row class="second-row justify-content-md-center">
       <b-col class="left-col" cols="3">
         <b-row>
           <b-col>
-            <b-img class="measurements-img" src="../assets/measurements4.png"></b-img>
+            <b-img v-b-modal.modal-4 class="measurements-img" src="../assets/measurements4.png"></b-img>
           </b-col>
         </b-row>
         <b-row>
           <b-col>
-            <b-img class="measurements-img" src="../assets/measurements5.png"></b-img>
+            <b-img v-b-modal.modal-5 class="measurements-img" src="../assets/measurements5.png"></b-img>
           </b-col>
         </b-row>
       </b-col>
       <b-col cols="3">
-        <b-img class="measurements-img" src="../assets/measurements6.png"></b-img>
+        <b-img v-b-modal.modal-6 class="measurements-img" src="../assets/measurements6.png"></b-img>
       </b-col>
     </b-row>
     <b-row align-h="center">
@@ -38,16 +90,74 @@
         <fieldset class="intro-measurements">
           <legend class="intro-title-measurements">Did you take your measurements?</legend>
           <div id="measurements-button-wrapper" class="text-center">
-            <b-button
-              id="measurements-button"
-              @click="scrollToTop"
-            >
-              Book an appointment with Kerry
-            </b-button>
+            <router-link to="/contact_us">
+              <v-btn id="measurements-button" class="parallax-btn" color="#FFFFFFe0" min-height="70" min-width="150">Book an appointment with Kerry</v-btn>
+            </router-link>
           </div>
         </fieldset>
       </b-col>
     </b-row>
+    <!-- Modals -->
+    <b-modal id="modal-1" title="Neck and Bust" hide-footer>
+      <p style="text-align:justify">
+        <span style="font-weight:bold">1. Neck:</span> To measure your neck, pull the tape around the middle, 
+        coming from the back to the front. It should sit at the base of
+        the neck above the collar bone.
+      </p>
+      <p style="text-align:justify">
+        <span style="font-weight:bold">2. Bust:</span> To measure your bust, bring the tape around your back and
+        around to the front. Pull it around the fullest point of your bust.
+        It should be parallel to the floor, making a straight, horizontal line
+        across both your front and back. If you have someone to help, you record
+        the measurement at the front with your hand down at your sides.
+      </p>
+    </b-modal>
+    <b-modal id="modal-2" title="Waist and Hips" hide-footer>
+      <p style="text-align:justify">
+        <span style="font-weight:bold">3. Waist:</span> To measure your waist, don't measure where 
+        your pants finish - this is not your natural waist! Your waist is the smallest part of your
+        torso and right underneath your rib cage near your belly button. Make sure the tape is even
+        across the front and back and parallel to the floor.
+      </p>
+      <p style="text-align:justify">
+        <span style="font-weight:bold">4. Hips:</span> To measure the hips, keep this in mind: it is not 
+        where the top of your hip bone is, it is actually around the largest part of your hip area.
+      </p>
+    </b-modal>
+    <b-modal id="modal-3" title="Front waist lenght" hide-footer>
+      <p style="text-align:justify">
+        <span style="font-weight:bold">5. Front waist lenght:</span> Start measuring from the side base of your 
+        neck, at the top shoulder line, and going down towards your waist level passing over your bust point. 
+        Try to keep the tape as straight as possible. To measure bust depth, use the same starting point on the 
+        shoulder as your front waist length, measuring down to the apex of your bust point.
+      </p>
+    </b-modal>
+    <b-modal id="modal-4" title="Back waist lenght" hide-footer>
+      <p style="text-align:justify">
+        <span style="font-weight:bold">6. Back waist lenght:</span> This one is definitely a two-person job, so call 
+        a friend and have them measure from the nape of the neck, down your spine and to your waist. To measure the 
+        back width, measure horizontally between your arm attachment points (underarm).
+      </p>
+    </b-modal>
+    <b-modal id="modal-5" title="Shoulder and Underarm" hide-footer>
+      <p style="text-align:justify">
+        <span style="font-weight:bold">7. Shoulder:</span> This is your shoulder seam length. Measure from the base 
+        of your neck right in the middle of your shoulder (from a bird's eye view) and along to the tip of your shoulder.
+        If you have trouble determining your shoulder tip, find a garment in your closet that fits well and has a collar
+        and sleeve. Then measure the shoulder length of the garment.
+      </p>
+      <p style="text-align:justify">
+        <span style="font-weight:bold">8. Underarm:</span> To measure under the arm, wrap your measuring tape around 
+        the fullest part of your arm above your elbow.
+      </p>
+    </b-modal>
+    <b-modal id="modal-6" title="Arm lenght" hide-footer>
+      <p style="text-align:justify">
+        <span style="font-weight:bold">9. Arm lenght:</span> (Picture Six) Have your arm just slightly bent, 
+        and measure from the tip of your shoulder over the elbow to your wrist line. You will also need a friend 
+        for this measurement.
+      </p>
+    </b-modal>
   </b-container>
 </template>
 
@@ -65,6 +175,9 @@ export default {
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
       "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     color: #c8a338;
+  }
+  .zero-row{
+    border-top: 2px solid #e9ecea;
   }
   .first-row{
     border-top: 2px solid #e9ecea;
@@ -88,6 +201,10 @@ export default {
   .measurements-img{
     width: 100%;
   }
+  .measurements-img:hover{
+    box-shadow: 0px 0px 10px black;
+    cursor: pointer;
+  }
   .intro-measurements{
     border: solid 2px	#e9ecea;
   }
@@ -107,10 +224,6 @@ export default {
     margin:3% 0% 3% 0%;
   }
   #measurements-button{
-    background-color: #e9ecea;
-    border: transparent;
-    font-weight: bold;
-    color: #000000;
-    box-shadow: 2px 2px 4px black;
+    margin-top:0%;
   }
 </style>

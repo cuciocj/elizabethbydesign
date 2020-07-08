@@ -41,6 +41,42 @@
   </div>
 </template>
 
+<script>
+import axios from 'axios';
+import background1 from "@/assets/home1.jpg";
+import background2 from "@/assets/home2.jpg";
+
+export default {
+  data() {
+    return {
+      jumboImage: background1,
+      elderWoman: background2,
+      welcomeJumbotron: {
+        header: '',
+        subheader: '',
+      }
+    };
+  },
+  methods: {
+    getHomeInfo() {
+      const endpoint = 'http://localhost:5000/home';
+      axios.get(endpoint)
+        .then((res) => {
+          console.log(res.data);
+          this.welcomeJumbotron.header = res.data.welcome_jumbotron.header;
+          this.welcomeJumbotron.subheader = res.data.welcome_jumbotron.subheader;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+  },
+  created() {
+    this.getHomeInfo();
+  }
+};
+</script>
+
 <style>
 .parallax-1 {
   font-weight: bold;
@@ -113,38 +149,3 @@ a:hover {
 }
 </style>
 
-<script>
-import axios from 'axios';
-import background1 from "@/assets/home1.jpg";
-import background2 from "@/assets/home2.jpg";
-
-export default {
-  data() {
-    return {
-      jumboImage: background1,
-      elderWoman: background2,
-      welcomeJumbotron: {
-        header: '',
-        subheader: '',
-      }
-    };
-  },
-  methods: {
-    getHomeInfo() {
-      const endpoint = 'http://localhost:5000/home';
-      axios.get(endpoint)
-        .then((res) => {
-          console.log(res.data);
-          this.welcomeJumbotron.header = res.data.welcome_jumbotron.header;
-          this.welcomeJumbotron.subheader = res.data.welcome_jumbotron.subheader;
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    },
-  },
-  created() {
-    this.getHomeInfo();
-  }
-};
-</script>

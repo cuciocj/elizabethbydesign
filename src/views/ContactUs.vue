@@ -1,5 +1,6 @@
 <template>
   <div class="contact-content">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <div class="img-overlay">
       <div class="project-overlay">
         <h1>GET IN TOUCH</h1>
@@ -188,25 +189,25 @@ export default {
       alert(JSON.stringify(this.form));
     },
   },
-  mounted() {
-    <link
-      href="https://assets.calendly.com/assets/external/widget.css"
-      rel="stylesheet"
-    ></link>;
-    const linkAsset = document.createElement("link");
-    linkAsset.setAttribute(
-      "href",
-      "https://assets.calendly.com/assets/external/widget.css"
-    );
-    linkAsset.setAttribute("rel", "stylesheet");
-    document.head.appendChild(linkAsset);
+  // created() {
+  //   <link
+  //     href="https://assets.calendly.com/assets/external/widget.css"
+  //     rel="stylesheet"
+  //   ></link>;
+  //   const linkAsset = document.createElement("link");
+  //   linkAsset.setAttribute(
+  //     "href",
+  //     "https://assets.calendly.com/assets/external/widget.css"
+  //   );
+  //   linkAsset.setAttribute("rel", "stylesheet");
+  //   document.head.appendChild(linkAsset);
 
-    const calendlyScript = document.createElement("script");
-    calendlyScript.setAttribute(
-      "src",
-      "https://assets.calendly.com/assets/external/widget.js"
-    );
-    document.head.appendChild(calendlyScript);
-  }
+  //   const calendlyScript = document.createElement("script");
+  //   calendlyScript.setAttribute(
+  //     "src",
+  //     "https://assets.calendly.com/assets/external/widget.js"
+  //   );
+  //   document.head.appendChild(calendlyScript);
+  // }
 };
 </script>

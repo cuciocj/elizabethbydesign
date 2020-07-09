@@ -1,6 +1,223 @@
 <template>
   <div class="where-content">
+  <div>
     <b-card no-body>
+      <b-tabs pills card fill>
+        <b-tab title="Casual Dresses" active>
+          <b-card-body id="nav-scroller" class="my-content" ref="content" style="position:relative; height:430px;">
+            <b-row style="width: 1650px;">
+              <b-col>
+                <b-card border-variant="light" no-body style="width: 540px;">
+                  <b-row no-gutters>
+                    <b-col md="6">
+                      <b-card-img src="../assets/casual_photos/casual2.jpg"
+                      class="rounded-0"></b-card-img>
+                    </b-col>
+                    <b-col md="6">
+                      <b-card-body title="Silk Dress">
+                        <b-card-text>
+                          {{ text1 }}
+                        </b-card-text>
+                      </b-card-body>
+                    </b-col>
+                  </b-row>
+                </b-card>
+              </b-col>
+              <b-col>
+                <b-card no-body border-variant="light" style="width: 540px;">
+                  <b-row no-gutters>
+                    <b-col md="6">
+                      <b-card-img src="../assets/casual_photos/casual4.jpg"
+                      class="rounded-0"></b-card-img>
+                    </b-col>
+                    <b-col md="6">
+                      <b-card-body title="Handprinting Dress">
+                        <b-card-text>
+                          {{ text2 }}
+                        </b-card-text>
+                      </b-card-body>
+                    </b-col>
+                  </b-row>
+                </b-card>
+              </b-col>
+              <b-col>
+                <b-card no-body border-variant="light" style="width: 540px;">
+                  <b-row no-gutters>
+                    <b-col md="6">
+                      <b-card-img src="../assets/casual_photos/casual6.jpg"
+                      class="rounded-0"></b-card-img>
+                    </b-col>
+                    <b-col md="6">
+                      <b-card-body title="Floral Summer Dress">
+                        <b-card-text>
+                          {{ text3 }}
+                        </b-card-text>
+                      </b-card-body>
+                    </b-col>
+                  </b-row>
+                </b-card>
+              </b-col>
+            </b-row>
+          </b-card-body>
+        </b-tab>
+        <b-tab title="Casual Tops">
+          <b-card-body id="nav-scroller" class="my-content" ref="content" style="position:relative; height:430px;">
+            <b-row style="width: 1650px;">
+              <b-col >
+                <b-card no-body border-variant="light" style="width: 540px;">
+                  <b-row no-gutters>
+                    <b-col md="6">
+                      <b-card-img src="../assets/casual_photos/casual7.jpg"
+                      class="rounded-0"></b-card-img>
+                    </b-col>
+                    <b-col md="6">
+                      <b-card-body title="Italian Silk Top">
+                        <b-card-text>
+                          {{ text4 }}
+                        </b-card-text>
+                      </b-card-body>
+                    </b-col>
+                  </b-row>
+                </b-card>
+              </b-col>
+              <b-col >
+                <b-card no-body border-variant="light" style="width: 540px;">
+                  <b-row no-gutters>
+                    <b-col md="6">
+                      <b-card-img src="../assets/casual_photos/casual8.jpg"
+                      class="rounded-0"></b-card-img>
+                    </b-col>
+                    <b-col md="6">
+                      <b-card-body title="Floral Blue Top">
+                        <b-card-text>
+                          {{ text5 }}
+                        </b-card-text>
+                      </b-card-body>
+                    </b-col>
+                  </b-row>
+                </b-card>
+              </b-col>
+              <b-col >
+                <b-card no-body border-variant="light" style="width: 540px;">
+                  <b-row no-gutters>
+                    <b-col md="6">
+                      <b-card-img src="../assets/casual_photos/casual10.jpg"
+                      class="rounded-0"></b-card-img>
+                    </b-col>
+                    <b-col md="6">
+                      <b-card-body title="Floral Gold Top">
+                        <b-card-text>
+                          {{ text6 }}
+                        </b-card-text>
+                      </b-card-body>
+                    </b-col>
+                  </b-row>
+                </b-card>
+              </b-col>
+            </b-row>
+          </b-card-body>
+        </b-tab>
+        <b-tab title="Coorporate dresses">
+          <b-card-body id="nav-scroller" class="my-content" ref="content" style="position:relative; height:430px;">
+            <b-row style="width: 1300px;">
+              <b-col>
+                <b-card no-body border-variant="light" style="width: 540px;">
+                  <b-row no-gutters>
+                    <b-col md="6">
+                      <b-card-img src="../assets/corp_photos/corp3.jpg"
+                      class="rounded-0"></b-card-img>
+                    </b-col>
+                    <b-col md="6">
+                      <b-card-body title="Floral Coorporate Dress">
+                        <b-card-text>
+                          {{ text7 }}
+                        </b-card-text>
+                      </b-card-body>
+                    </b-col>
+                  </b-row>
+                </b-card>
+              </b-col>
+              <b-col>
+                <b-card no-body border-variant="light" style="width: 540px;">
+                  <b-row no-gutters>
+                    <b-col md="6">
+                      <b-card-img src="../assets/corp_photos/corp4.jpg"
+                      class="rounded-0"></b-card-img>
+                    </b-col>
+                    <b-col md="6">
+                      <b-card-body title="Black Coorporate Dress">
+                        <b-card-text>
+                          {{ text8 }}
+                        </b-card-text>
+                      </b-card-body>
+                    </b-col>
+                  </b-row>
+                </b-card>
+              </b-col>
+            </b-row>
+          </b-card-body>
+        </b-tab>
+        <b-tab title="Formal Dresses">
+          <b-card-body id="nav-scroller" class="my-content" ref="content" style="position:relative; height:430px;">
+            <b-row style="width: 1650px;">
+              <b-col>
+                <b-card no-body border-variant="light" style="width: 540px;">
+                  <b-row no-gutters>
+                    <b-col md="6">
+                      <b-card-img src="../assets/formal_photos/form2.jpg"
+                      class="rounded-0"></b-card-img>
+                    </b-col>
+                    <b-col md="6">
+                      <b-card-body title="Black Formal Dress">
+                        <b-card-text>
+                          {{ text9 }}
+                        </b-card-text>
+                      </b-card-body>
+                    </b-col>
+                  </b-row>
+                </b-card>
+              </b-col>
+              <b-col>
+                <b-card no-body border-variant="light" style="width: 540px;">
+                  <b-row no-gutters>
+                    <b-col md="6">
+                      <b-card-img src="../assets/formal_photos/form4.jpg"
+                      class="rounded-0"></b-card-img>
+                    </b-col>
+                    <b-col md="6">
+                      <b-card-body title="Floral Formal Dress">
+                        <b-card-text>
+                          {{ text10 }}
+                        </b-card-text>
+                      </b-card-body>
+                    </b-col>
+                  </b-row>
+                </b-card>
+              </b-col>
+              <b-col>
+                <b-card no-body border-variant="light" style="width: 540px;">
+                  <b-row no-gutters>
+                    <b-col md="6">
+                      <b-card-img src="../assets/formal_photos/formcoat1.jpg"
+                      class="rounded-0"></b-card-img>
+                    </b-col>
+                    <b-col md="6">
+                      <b-card-body title="Evening Coat">
+                        <b-card-text>
+                          {{ text11 }}
+                        </b-card-text>
+                      </b-card-body>
+                    </b-col>
+                  </b-row>
+                </b-card>
+              </b-col>
+            </b-row>
+          </b-card-body>
+        </b-tab>
+      </b-tabs>
+    </b-card>
+  </div>
+    <!-- <b-card no-body>
 
       <b-nav pills card-header align="center" slot="header" v-b-scrollspy:nav-scroller sticky>
         <b-nav-item  href="#list-item-1" @click="scrollIntoView">Casual Dresses</b-nav-item>
@@ -218,7 +435,7 @@
           </div>
         </b-col>
       </b-card-body>
-    </b-card>
+    </b-card> -->
   </div>
 </template>
 
@@ -305,10 +522,9 @@ export default {
   /* Hide scrollbar for Chrome, Safari and Opera */
 
   .nav  {
-  text-decoration: none;  
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-  "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-
+    text-decoration: none;  
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   }
 
   .nav li a {
@@ -318,19 +534,19 @@ export default {
      color: #b09545;
   }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #b09545;
     background-color: #e9ecea;
-}
+  }
 
   .nav-scroller{
     color: #777
   }
  
   .card-header{
-    position: sticky;
+    /* position: sticky;
     top: 0%;
-    z-index: 1;
+    z-index: 1; */
     background-color: #e9ecea;
   }
  

@@ -143,7 +143,7 @@
         </b-card-text>
       </b-card>
 
-    <v-timeline dense>
+    <v-timeline>
 
        <v-timeline-item color="#c8a338" large>
           <v-card class="elevation-2">

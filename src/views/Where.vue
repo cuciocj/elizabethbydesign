@@ -6,7 +6,7 @@
         <b-tab title="Casual Dresses" active>
           <b-card-body id="nav-scroller" class="my-content" ref="content" style="position:relative; height:430px;">
             <b-row style="width: 1650px;">
-              <b-col>
+              <b-col v-for="n in 10" v-bind:key="n">
                 <b-card border-variant="light" no-body style="width: 540px;">
                   <b-row no-gutters>
                     <b-col md="6">

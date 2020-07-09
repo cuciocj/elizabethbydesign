@@ -3,8 +3,8 @@
     <v-parallax dark :src="jumboImage" height="600">
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
-          <h1 class="parallax-1 display-1 font-weight-thin m-5">{{ welcomeJumbotron.header }}</h1>
-          <h4 class="parallax-sub1 subheading">{{ welcomeJumbotron.subheader }}</h4>
+          <h1 class="parallax-1 display-1 font-weight-thin m-5">{{ jumbotronAboutus.header }}</h1>
+          <h4 class="parallax-sub1 subheading">{{ jumbotronAboutus.subheader }}</h4>
           <router-link to="/about_us">
             <v-btn class="parallax-btn" color="#FFFFFFe0" min-height="70" min-width="150">More</v-btn>
           </router-link>
@@ -23,10 +23,10 @@
     <v-parallax dark :src="elderWoman" height="600">
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
-          <h1 class="parallax-2 display-3 font-weight-thin m-5">Discover your personal style</h1>
+          <h1 class="parallax-2 display-3 font-weight-thin m-5">{{ jumbotronStyle.header }}</h1>
           <h4
             class="parallax-sub1 subheading"
-          >Ever felt that you have an overflowing wardrobe but nothing to wear?</h4>
+          >{{ jumbotronStyle.subheader }}</h4>
           <router-link to="/style">
             <v-btn
               class="parallax-btn"
@@ -51,9 +51,13 @@ export default {
     return {
       jumboImage: background1,
       elderWoman: background2,
-      welcomeJumbotron: {
+      jumbotronAboutus: {
         header: '',
         subheader: '',
+      },
+      jumbotronStyle: {
+        header: '',
+        subheader: ''
       }
     };
   },
@@ -62,9 +66,10 @@ export default {
       const endpoint = 'http://localhost:5000/home';
       axios.get(endpoint)
         .then((res) => {
-          console.log(res.data);
-          this.welcomeJumbotron.header = res.data.welcome_jumbotron.header;
-          this.welcomeJumbotron.subheader = res.data.welcome_jumbotron.subheader;
+          this.jumbotronAboutus.header = res.data.jumbotron_aboutus.header;
+          this.jumbotronAboutus.subheader = res.data.jumbotron_aboutus.subheader;
+          this.jumbotronStyle.header = res.data.jumbotron_style.header;
+          this.jumbotronStyle.subheader = res.data.jumbotron_style.subheader;
         })
         .catch((error) => {
           console.error(error);

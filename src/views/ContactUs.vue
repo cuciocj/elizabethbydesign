@@ -23,7 +23,7 @@
       </div>
       <b-img
         id="bg-image"
-        :src="require('@/assets/computer-keyboard-3.jpg')"
+        :src="contactUsBgImage"
         alt="keyboard-type"
         fluid-grow
       ></b-img>
@@ -103,21 +103,9 @@
 export default {
   data() {
     return {
-      form: {
-        survey1: "",
-        survey2: "",
-        survey3: "",
-        survey4: ""
-      },
-      show: true
+      
     };
-  },
-  methods: {
-    onSubmit(evt) {
-      evt.preventDefault();
-      alert(JSON.stringify(this.form));
-    },
-  },
+  }
 };
 </script>
 
@@ -197,23 +185,17 @@ p {
 </style>
 
 <script>
+import bgImage from "@/assets/computer-keyboard-3.jpg"
+
 export default {
   data() {
     return {
-      form: {
-        survey1: "",
-        survey2: "",
-        survey3: "",
-        survey4: ""
-      },
-      show: true
+      contactUsBgImage: bgImage,
+      header: '',
+      subheading: '',
+      keepInTouchHeader: '',
+      keepInTouchSubheading: '',
     };
-  },
-  methods: {
-    onSubmit(evt) {
-      evt.preventDefault();
-      alert(JSON.stringify(this.form));
-    },
   },
 };
 </script>

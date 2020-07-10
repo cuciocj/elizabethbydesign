@@ -17,7 +17,7 @@
           md="6"
           :pa-5="$vuetify.breakpoint.smAndDown">
 
-            <v-col class="justify-space-around" cols="12">
+            <v-col class="justify-space-around" cols="13">
               <div class="card-1" height="100vh">
                 <div class="card-body">
                   <h5 class="card-title-1">Hello! My name is Kerry Elizabeth Mitchell (Nee Brennan). </h5>
@@ -132,12 +132,12 @@
         img-alt="Card Image"
         text-variant="white"
         title="How Does It  Work?">
-          <b-card-text>
-                <br><br>At Elizabeth by Design we design and make clothing for the mature woman. 
-                We are based in Auckland and we deliver anywhere in New Zealand.<br><br>
+          <b-card-text class="card-text-2">
+                <br>At Elizabeth by Design we design and make clothing for the mature woman. 
+                We are based in Auckland and we deliver anywhere in New Zealand.<br> 
                 Typically it takes 6 weeks to make a garment. This includes consultation
                 about design, making a mockup to make sure we have the design right, 
-                purchase <br>of fabric and then creation and fitting process.<br><br>
+                purchase of fabric and then creation and fitting process.<br><br>
                 We use both face to face and online platforms to meet and discuss what 
                 garment you are hoping to have made. 
         </b-card-text>
@@ -200,6 +200,17 @@ div.card-1 {
 
 .card-title-1{
   color: #c8a338;
+}
+
+.card-text{
+    font-size: 90%;
+    color: #737373;
+}
+
+.card-text-2{
+    font-size: 110%;
+    font-display: justify;
+    color: white;
 }
 
 

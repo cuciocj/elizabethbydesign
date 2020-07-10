@@ -56,7 +56,7 @@
                   </b-row>
                 </b-card>
               </b-col>
-              <b-icon-caret-right id="arrow-move-right" font-scale="2"></b-icon-caret-right>
+              <!-- <b-icon-caret-right id="arrow-move-right" font-scale="2"></b-icon-caret-right> -->
             </b-row>
           </b-card-body>
         </b-tab>

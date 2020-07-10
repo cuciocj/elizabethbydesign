@@ -98,10 +98,6 @@ export default {
 </script>
 
 <style>
-div.col {
-  /* border: 1px solid black; */
-}
-
 div.keep-touch {
   margin: 2vw;
   color: #737373;

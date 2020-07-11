@@ -212,7 +212,7 @@ export default {
           this.keepInTouch.contactInfo.links.instagram = res.data.contactInfo[0].links.instagram;
           this.keepInTouch.contactInfo.links.twitter = res.data.contactInfo[0].links.twitter;
         })
-        .catch((error) =>{
+        .catch((error) => {
           console.error(error);
         });
     }

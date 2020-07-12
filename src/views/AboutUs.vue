@@ -152,7 +152,7 @@ export default {
       const endpoint = "http://localhost:5000/about_us";
       axios
         .get(endpoint)
-        .then(res => {
+        .then((res) => {
           console.log(res);
           this.card_1.title = res.data.card_1.title;
           this.card_1.texts = res.data.card_1.texts;

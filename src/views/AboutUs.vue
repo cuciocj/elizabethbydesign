@@ -1,7 +1,6 @@
 <template>
   <b-container class="about-content">
-    <br />
-    <br />
+    <br>
     <v-row no-gutters>
       <v-col md="6">
         <v-img :src="require('@/assets/kerry.png')" height="100vh" />
@@ -71,7 +70,7 @@
       </v-col>
       <v-col md></v-col>
     </v-row>
-
+    <br>
     <b-card
       overlay
       img-src="https://picsum.photos/900/250/?image=3"
@@ -83,8 +82,8 @@
         <p v-for="(text, index) in banner.texts" :key="index">{{ text }}</p>
       </b-card-text>
     </b-card>
-
-    <v-timeline>
+    <br>
+    <v-timeline dense>
       <v-timeline-item color="#c8a338" large v-for="(timeline, index) in timelines" :key="index">
         <v-card class="elevation-2">
           <v-card-title class="headline">{{ timeline.title }}</v-card-title>
@@ -96,6 +95,7 @@
         </v-card>
       </v-timeline-item>
     </v-timeline>
+    
   </b-container>
 </template>
 

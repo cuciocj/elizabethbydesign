@@ -350,7 +350,7 @@ export default {
  
   .my-content{
     position:relative;
-    overflow: scroll; /* Add the ability to scroll */
+    overflow: hidden; /* Add the ability to scroll */
     height:700px;
   }
 

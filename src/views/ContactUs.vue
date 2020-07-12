@@ -3,12 +3,8 @@
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <div class="img-overlay">
       <div class="project-overlay">
-        <h1>GET IN TOUCH</h1>
-        <p class="text-center">
-          Once you are ready, you can make contact with Kerry.
-          You can call Kerry or email her with a preferred time to meet.
-          Meetings can be online or face to face - depending on where you live.
-        </p>
+        <h1>{{ header }}</h1>
+        <p class="text-center">{{ subheading }}</p>
         <div class="text-center">
           <b-button
             pill
@@ -30,13 +26,8 @@
     </div>
     <b-container>
       <div class="keep-touch">
-        <h4>Keep in touch with Kerry</h4>
-        <p style="margin: 2vw">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Illo pariatur quidem, quis modi iure nihil commodi suscipit,
-          corporis dicta adipisci, voluptatum quia cupiditate. Nulla
-          minus voluptatum nostrum deleniti, asperiores facere.
-        </p>
+        <h4>{{ keepInTouch.header }}</h4>
+        <p style="margin: 2vw">{{ keepInTouch.subheading }}</p>
         <b-row>
           <b-col>
             <b-card
@@ -46,9 +37,7 @@
               align="center"
               style="min-height: 10rem;"
             >
-              <b-card-text>
-                203-271 Victoria Street West, Auckland CBD, Auckland 1010
-              </b-card-text>
+              <b-card-text>{{ keepInTouch.contactInfo.info.address }}</b-card-text>
             </b-card>
           </b-col>
           <b-col>
@@ -59,10 +48,7 @@
               align="center"
               style="min-height: 10rem;"
             >
-              <b-card-text>
-                01 (800) 433 744<br>
-                (64) 22 987 6543
-              </b-card-text>
+              <b-card-text>{{ keepInTouch.contactInfo.info.mobile }}</b-card-text>
             </b-card>
           </b-col>
           <b-col>
@@ -74,7 +60,9 @@
               style="min-height: 10rem;"
             >
               <b-card-text class="keep-touch-links">
-                <a class="email" href="mailto:elizabethydesign@gmail.com">elizabethydesign@gmail.com</a>
+                <a class="email" :href="'mailto:'+keepInTouch.contactInfo.info.email">
+                  {{ keepInTouch.contactInfo.info.email }}
+                </a>
               </b-card-text>
             </b-card>
           </b-col>
@@ -87,9 +75,9 @@
               style="min-height: 10rem;"
             >
               <b-card-text class="keep-touch-links">
-                <span class="mdi mdi-facebook"></span><a href="http://www.facebook.com">Facebook</a><br>
-                <span class="mdi mdi-instagram"></span><a href="http://www.instagram.com">Instagram</a><br>
-                <span class="mdi mdi-twitter"></span><a href="http://www.twitter.com">Twitter</a>
+                <span class="mdi mdi-facebook"></span><a :href="keepInTouch.contactInfo.links.facebook">Facebook</a><br>
+                <span class="mdi mdi-instagram"></span><a :href="keepInTouch.contactInfo.links.instagram">Instagram</a><br>
+                <span class="mdi mdi-twitter"></span><a :href="keepInTouch.contactInfo.links.twitter">Twitter</a>
               </b-card-text>
             </b-card>
           </b-col>
@@ -110,10 +98,6 @@ export default {
 </script>
 
 <style>
-div.col {
-  /* border: 1px solid black; */
-}
-
 div.keep-touch {
   margin: 2vw;
   color: #737373;
@@ -185,6 +169,7 @@ p {
 </style>
 
 <script>
+import axios from 'axios';
 import bgImage from "@/assets/computer-keyboard-3.jpg"
 
 export default {
@@ -193,9 +178,47 @@ export default {
       contactUsBgImage: bgImage,
       header: '',
       subheading: '',
-      keepInTouchHeader: '',
-      keepInTouchSubheading: '',
+      keepInTouch: {
+        header: '',
+        subheading: '',
+        contactInfo: {
+          info: {
+            address: '',
+            email: '',
+            mobile: '',
+          },
+          links: {
+            facebook: '',
+            instagram: '',
+            twitter: '',
+          },
+        },
+      },
     };
   },
+  methods: {
+    getContactUsInfo() {
+      const endpoint = 'http://localhost:5000/contact_us';
+      axios.get(endpoint)
+        .then((res) => {
+          this.header = res.data.header;
+          this.subheading = res.data.subheader;
+          this.keepInTouch.header = res.data.keepInTouch.header,
+          this.keepInTouch.subheading = res.data.keepInTouch.subheading,
+          this.keepInTouch.contactInfo.info.address = res.data.contactInfo[0].info.address;
+          this.keepInTouch.contactInfo.info.email = res.data.contactInfo[0].info.email;
+          this.keepInTouch.contactInfo.info.mobile = res.data.contactInfo[0].info.mobile;
+          this.keepInTouch.contactInfo.links.facebook = res.data.contactInfo[0].links.facebook;
+          this.keepInTouch.contactInfo.links.instagram = res.data.contactInfo[0].links.instagram;
+          this.keepInTouch.contactInfo.links.twitter = res.data.contactInfo[0].links.twitter;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  },
+  created() {
+    this.getContactUsInfo();
+  }
 };
 </script>

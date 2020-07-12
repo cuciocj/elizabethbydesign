@@ -3,14 +3,9 @@
     <b-row align-h="center">
       <b-col cols="8">
         <fieldset class="intro">
-          <legend class="intro-title">Discover your personal style and build a fabulous wardrobe</legend>
-          <p class="intro-text">
-            Ever felt that you have an overflowing wardrobe but nothing to wear?
-          </p>
-          <p class="intro-text">
-            True personal style is always custom made, so building a wardrobe full 
-            of off the rack clothing makes little sense. Here are five steps to help 
-            you take control of your wardrobe
+          <legend class="intro-title">{{ introFieldset.title }}</legend>
+          <p class="intro-text" v-for="(text, index) in introFieldset.texts" :key="index" >
+            {{ text }}
           </p>
         </fieldset>
       </b-col>
@@ -30,24 +25,24 @@
       <b-col cols="3">
         <fieldset class="intro">
           <legend class="intro-title">Step One</legend>
-          <p class="intro-text">
-            Keep your wardrobe space for garments you absolutely love. Get rid of the rest.
+          <p class="intro-text" v-for="(text, index) in styleSteps.stepOne" :key="index" >
+            {{ text }}
           </p>
         </fieldset>
       </b-col>
       <b-col cols="3">
         <fieldset class="intro">
           <legend class="intro-title">Step Two</legend>
-          <p class="intro-text">
-            Forget fad fashion styles and create your own look.
+          <p class="intro-text" v-for="(text, index) in styleSteps.stepTwo" :key="index" >
+            {{ text }}
           </p>
         </fieldset>
       </b-col>
             <b-col cols="3">
         <fieldset class="intro">
           <legend class="intro-title">Step Three</legend>
-          <p class="intro-text">
-            Purchase quality garments, garments that will last more than just a season.
+          <p class="intro-text" v-for="(text, index) in styleSteps.stepThree" :key="index" >
+            {{ text }}
           </p>
           <br>
         </fieldset>
@@ -57,9 +52,8 @@
       <b-col cols="3">
         <fieldset class="intro">
           <legend class="intro-title">Step Four</legend>
-          <p class="intro-text">
-            Style always outshines fashion – 
-            enjoy fashion trends that work for you and forget the rest.
+          <p class="intro-text" v-for="(text, index) in styleSteps.stepFour" :key="index" >
+            {{ text }}
           </p>
         </fieldset>
       </b-col>
@@ -69,8 +63,8 @@
       <b-col cols="3">
         <fieldset class="intro">
           <legend class="intro-title">Step Five</legend>
-          <p class="intro-text">
-            Put in the effort and time to develop your style.
+          <p class="intro-text" v-for="(text, index) in styleSteps.stepFive" :key="index" >
+            {{ text }}
           </p>
           <br>
         </fieldset>
@@ -102,9 +96,9 @@
     <b-row align-h="center">
       <b-col cols="5">
         <fieldset class="intro">
-          <legend class="intro-title">Getting started</legend>
-          <p class="intro-text">
-            Take a photo of yourself each day just before you head out the door. Do this for two weeks.
+          <legend class="intro-title">{{ gettingStarted.intro.title }}</legend>
+          <p class="intro-text" v-for="(text, index) in gettingStarted.intro.texts" :key="index" >
+            {{ text }}
           </p>
         </fieldset>
       </b-col>
@@ -115,27 +109,9 @@
     <b-row align-h="center">
       <b-col cols="5">
         <fieldset class="intro">
-          <legend class="intro-title">After two weeks review your pictures and ask yourself</legend>
-          <p class="intro-text">
-            1. What was your favourite outfit?
-          </p>
-          <p class="intro-text">
-            2. How did the outfit make you feel?
-          </p>
-          <p class="intro-text">
-            3. What was it about the outfit that you liked most?
-          </p>
-          <p class="intro-text">
-            4. On a scale of 1 to 10 how pleased were you with your outfit choices over the two weeks?
-          </p>
-          <p class="intro-text">
-            5.  What colours did you wear most and how did you feel about your colour choices?
-          </p>
-          <p class="intro-text">
-            6. How would you describe your style of clothes?
-          </p>
-          <p class="intro-text">
-            7. When you look at the photos how well do your clothes fit you?
+          <legend class="intro-title">{{ gettingStarted.steps.title }}</legend>
+          <p class="intro-text" v-for="(text, index) in gettingStarted.steps.texts" :key="index" >
+            {{ text }}
           </p>
         </fieldset>
       </b-col>
@@ -146,15 +122,9 @@
       </b-col>
       <b-col cols="5">
         <fieldset class="intro">
-          <legend class="intro-title">Finally answer these questions</legend>
-          <p class="intro-text">
-            1. What do you like about your current style and wardrobe?
-          </p>
-          <p class="intro-text">
-            2. What aspects of your style and wardrobe need to be worked on?
-          </p>
-          <p class="intro-text">
-            3. What new skills and understanding do you want to learn?
+          <legend class="intro-title">{{ gettingStarted.questions.title }}</legend>
+          <p class="intro-text" v-for="(text, index) in gettingStarted.questions.texts" :key="index" >
+            {{ text }}
           </p>
         </fieldset>
       </b-col>
@@ -207,3 +177,59 @@
     margin: 2%;
   }
 </style>
+
+<script>
+import axios from "axios";
+
+export default {
+  data() {
+    return {
+      introFieldset: {
+        title: '',
+        texts: []
+      },
+      styleSteps: {
+        stepOne: [],
+        stepTwo: [],
+        stepThree: [],
+        stepFour: [],
+        stepFive: []
+      },
+      gettingStarted: {
+        intro: {
+          title: '',
+          texts: []
+        },
+        steps: {
+          title: '',
+          texts: []
+        },
+        questions: {
+          title: '',
+          texts: []
+        },
+      },
+    };
+  },
+  methods: {
+    getStyleInfo() {
+      const endpoint = "http://localhost:5000/style";
+      axios
+        .get(endpoint)
+        .then((res) => {
+          this.introFieldset = res.data.introFieldset;
+          this.styleSteps = res.data.styleSteps;
+          this.gettingStarted.intro = res.data.gettingStartedIntro;
+          this.gettingStarted.steps = res.data.gettingStartedSteps;
+          this.gettingStarted.questions = res.data.gettingStartedQuestions;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  },
+  created() {
+    this.getStyleInfo();
+  }
+}
+</script>

@@ -2,16 +2,14 @@
   <b-container>
     <b-row id="here" class="justify-content-md-center">
       <b-col class="title-row-col" cols="6">
-        <h2 id="my-title">Take your measurements</h2>
+        <h2 id="my-title">{{ title }}</h2>
       </b-col>
     </b-row>
     <b-row class="zero-row justify-content-md-center">
       <b-col class="first-row-col" cols="8">
         <fieldset class="intro">
-          <p class="intro-text">
-            Ideally Kerry will meet with you to take your body measurements. However, if we need to do 
-            the measurement remotely the guidelines below will help you take accurate measurements. Kerry 
-            will be online and guiding you through the process.
+          <p class="intro-text" v-for="(text, index) in intro" :key="index" >
+            {{ text }}
           </p>
         </fieldset>
       </b-col>
@@ -19,18 +17,17 @@
     <b-row class="justify-content-md-center">
       <b-col class="first-row-col" cols="4">
         <fieldset class="intro">
-          <legend class="intro-title">Get help</legend>
-          <p class="intro-text">
-            Stand in front of a mirror and have someone on standby to assist you
-            (especially for those back measurements.)
+          <legend class="intro-title">{{ instructions.instruct_1.title }}</legend>
+          <p class="intro-text" v-for="(text, index) in instructions.instruct_1.texts" :key="index" >
+            {{ text }}
           </p>
         </fieldset>
       </b-col>
       <b-col class="first-row-col" cols="4">
         <fieldset class="intro">
-          <legend class="intro-title">Use the right tape</legend>
-          <p class="intro-text">
-            Keep your wardrobe space for garments you absolutely love. Get rid of the rest.
+          <legend class="intro-title">{{ instructions.instruct_2.title }}</legend>
+          <p class="intro-text" v-for="(text, index) in instructions.instruct_2.texts" :key="index" >
+            {{ text }}
           </p>
         </fieldset>
       </b-col>
@@ -38,21 +35,17 @@
     <b-row class="justify-content-md-center">
       <b-col class="first-row-col" cols="4">
         <fieldset class="intro">
-          <legend class="intro-title">Decide your bra</legend>
-          <p class="intro-text">
-            Your bust level and circumference measurement will change depending on the style of bra 
-            you wear, so if you plan on wearing a bra with your finished garment, make sure you wear 
-            the same style bra during the measuring process.
+          <legend class="intro-title">{{ instructions.instruct_3.title }}</legend>
+          <p class="intro-text" v-for="(text, index) in instructions.instruct_3.texts" :key="index" >
+            {{ text }}
           </p>
         </fieldset>
       </b-col>
       <b-col class="first-row-col" cols="4">
         <fieldset class="intro">
-          <legend class="intro-title">Check your posture</legend>
-          <p class="intro-text">
-            Stand upright in a relaxed position with your feet together. When measuring, breathe normally 
-            and make sure the tape is comfortably fitted to the body. (Don't suck in that tummy - 
-            you will just end up with a tight-fitting garment!)
+          <legend class="intro-title">{{ instructions.instruct_4.title }}</legend>
+          <p class="intro-text" v-for="(text, index) in instructions.instruct_4.texts" :key="index" >
+            {{ text }}
           </p>
         </fieldset>
       </b-col>
@@ -162,8 +155,51 @@
 </template>
 
 <script>
-export default {
+import axios from 'axios';
 
+export default {
+  data() {
+    return {
+      title: '',
+      intro: [],
+      instructions: {
+        instruct_1 : {
+          title: '',
+          texts: []
+        },
+        instruct_2 : {
+          title: '',
+          texts: []
+        },
+        instruct_3 : {
+          title: '',
+          texts: []
+        },
+        instruct_4 : {
+          title: '',
+          texts: []
+        },
+      },
+    };
+  },
+  methods: {
+    getMeasurementInfo() {
+      const endpoint = "http://localhost:5000/measurement";
+      axios
+        .get(endpoint)
+        .then((res) => {
+          this.title = res.data.title;
+          this.intro = res.data.intro;
+          this.instructions = res.data.instructions;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  },
+  created() {
+    this.getMeasurementInfo();
+  }
 }
 </script>
 

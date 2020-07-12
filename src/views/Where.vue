@@ -2,9 +2,12 @@
   <div class="where-content">
     <b-card no-body>
       <b-tabs pills card fill>
-        <b-tab title="Casual Dresses" active>
-          <b-card-body id="nav-scroller" class="my-content" ref="content" style="position:relative; height:430px;">
+        <b-card-body id="nav-scroller" class="my-content" ref="content" style="position:relative; height:430px;">
+          <b-tab title="Casual Dresses" active v-on:click="scrollToBeginning">
+          
             <b-row style="width: 1650px;">
+              <b-icon-caret-left data-direction="left" class="arrow-move-left"  font-scale="2" v-if="arrow_initial" v-on:mouseover="startArrowAnimation" ></b-icon-caret-left>
+              <b-icon-caret-left-fill class="arrow-move-left" font-scale="2" v-if="arrow_hover" animation="cylon" v-on:mouseout="stopArrowAnimation"></b-icon-caret-left-fill>
               <b-col>
                 <b-card border-variant="light" no-body style="width: 540px;">
                   <b-row no-gutters>
@@ -56,13 +59,15 @@
                   </b-row>
                 </b-card>
               </b-col>
-              <!-- <b-icon-caret-right id="arrow-move-right" font-scale="2"></b-icon-caret-right> -->
+              <b-icon-caret-right data-direction="right" class="arrow-move-right"  font-scale="2" v-if="arrow_initial" v-on:mouseover="startArrowAnimation" ></b-icon-caret-right>
+              <b-icon-caret-right-fill class="arrow-move-right" font-scale="2" v-if="arrow_hover" animation="cylon" v-on:mouseout="stopArrowAnimation"></b-icon-caret-right-fill>
             </b-row>
-          </b-card-body>
-        </b-tab>
-        <b-tab title="Casual Tops">
-          <b-card-body id="nav-scroller" class="my-content" ref="content" style="position:relative; height:430px;">
+          
+          </b-tab>
+          <b-tab title="Casual Tops" v-on:click="scrollToBeginning">
             <b-row style="width: 1650px;">
+              <b-icon-caret-left data-direction="left" class="arrow-move-left"  font-scale="2" v-if="arrow_initial" v-on:mouseover="startArrowAnimation" ></b-icon-caret-left>
+              <b-icon-caret-left-fill class="arrow-move-left" font-scale="2" v-if="arrow_hover" animation="cylon" v-on:mouseout="stopArrowAnimation"></b-icon-caret-left-fill>
               <b-col >
                 <b-card no-body border-variant="light" style="width: 540px;">
                   <b-row no-gutters>
@@ -114,12 +119,14 @@
                   </b-row>
                 </b-card>
               </b-col>
+              <b-icon-caret-right data-direction="right" class="arrow-move-right"  font-scale="2" v-if="arrow_initial" v-on:mouseover="startArrowAnimation" ></b-icon-caret-right>
+              <b-icon-caret-right-fill class="arrow-move-right" font-scale="2" v-if="arrow_hover" animation="cylon" v-on:mouseout="stopArrowAnimation"></b-icon-caret-right-fill>
             </b-row>
-          </b-card-body>
-        </b-tab>
-        <b-tab title="Coorporate dresses">
-          <b-card-body id="nav-scroller" class="my-content" ref="content" style="position:relative; height:430px;">
+          </b-tab>
+          <b-tab title="Coorporate dresses" v-on:click="scrollToBeginning">
             <b-row style="width: 1300px;">
+              <b-icon-caret-left data-direction="left" class="arrow-move-left"  font-scale="2" v-if="arrow_initial" v-on:mouseover="startArrowAnimation" ></b-icon-caret-left>
+              <b-icon-caret-left-fill class="arrow-move-left" font-scale="2" v-if="arrow_hover" animation="cylon" v-on:mouseout="stopArrowAnimation"></b-icon-caret-left-fill>
               <b-col>
                 <b-card no-body border-variant="light" style="width: 540px;">
                   <b-row no-gutters>
@@ -154,12 +161,14 @@
                   </b-row>
                 </b-card>
               </b-col>
+              <b-icon-caret-right data-direction="right" class="arrow-move-right"  font-scale="2" v-if="arrow_initial" v-on:mouseover="startArrowAnimation" ></b-icon-caret-right>
+              <b-icon-caret-right-fill class="arrow-move-right" font-scale="2" v-if="arrow_hover" animation="cylon" v-on:mouseout="stopArrowAnimation"></b-icon-caret-right-fill>
             </b-row>
-          </b-card-body>
-        </b-tab>
-        <b-tab title="Formal Dresses">
-          <b-card-body id="nav-scroller" class="my-content" ref="content" style="position:relative; height:430px;">
+          </b-tab>
+          <b-tab title="Formal Dresses" v-on:click="scrollToBeginning">
             <b-row style="width: 1650px;">
+              <b-icon-caret-left data-direction="left" class="arrow-move-left"  font-scale="2" v-if="arrow_initial" v-on:mouseover="startArrowAnimation" ></b-icon-caret-left>
+              <b-icon-caret-left-fill class="arrow-move-left" font-scale="2" v-if="arrow_hover" animation="cylon" v-on:mouseout="stopArrowAnimation"></b-icon-caret-left-fill>
               <b-col>
                 <b-card no-body border-variant="light" style="width: 540px;">
                   <b-row no-gutters>
@@ -211,9 +220,11 @@
                   </b-row>
                 </b-card>
               </b-col>
+              <b-icon-caret-right data-direction="right" class="arrow-move-right"  font-scale="2" v-if="arrow_initial" v-on:mouseover="startArrowAnimation" ></b-icon-caret-right>
+              <b-icon-caret-right-fill class="arrow-move-right" font-scale="2" v-if="arrow_hover" animation="cylon" v-on:mouseout="stopArrowAnimation"></b-icon-caret-right-fill>
             </b-row>
-          </b-card-body>
-        </b-tab>
+          </b-tab>
+        </b-card-body>
       </b-tabs>
     </b-card>
   </div>
@@ -221,18 +232,6 @@
 
 <script>
 export default {
-  methods: {
-    // Convenience method to scroll a heading into view.
-    // Not required for scrollspy to work
-    scrollIntoView(evt) {
-      evt.preventDefault();
-      const href = evt.target.getAttribute('href');
-      const el = href ? document.querySelector(href) : null;
-      if (el) {
-        this.$refs.content.scrollTop = el.offsetTop;
-      }
-    },
-  },
   data() {
     return {
       text1: `
@@ -290,11 +289,29 @@ export default {
         Team this up with any black dress, corporate or formal and you will get no end of compliments. 
 
        This coat  is fully lined.
-       `
-
-
+       `,
+       arrow_initial: true,
+       arrow_hover: false
     };
   },
+  methods: {
+    startArrowAnimation: function(){
+      this.arrow_initial = false;
+      this.arrow_hover = true;
+      if(event.target.getAttribute('data-direction') == "right"){
+        document.getElementById('nav-scroller').scrollLeft += 20;
+      }else if(event.target.getAttribute('data-direction') == "left"){
+        document.getElementById('nav-scroller').scrollLeft -= 20;
+      }
+    },
+    stopArrowAnimation: function(){
+      this.arrow_initial = true;
+      this.arrow_hover = false;
+    },
+    scrollToBeginning: function(){
+      document.getElementById('nav-scroller').scrollLeft -= 50000;
+    }
+  }
 };
 </script>
 
@@ -341,11 +358,16 @@ export default {
     display: none;
   }
 
-  #arrow-move-right{
+  .arrow-move-right{
     position: sticky;
     z-index: 1;
     right:0;
     top:40%;
   }
-  
+  .arrow-move-left{
+    position: sticky;
+    z-index: 1;
+    left:0;
+    top:40%;
+  }
 </style>

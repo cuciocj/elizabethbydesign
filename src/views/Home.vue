@@ -38,6 +38,40 @@
         </v-col>
       </v-row>
     </v-parallax>
+
+    <div class="where-you-going">
+      <p class="text-center">
+        We do not sell off the shelf garments. Rather we
+        design and make to measure. Each garment is unique to your requirements.
+        <v-divider></v-divider>
+        <router-link to="/where">
+          <v-btn 
+            class="parallax-btn"
+            color="#FFFFFFe0"
+            min-height="70"
+            min-width="150">
+            Check out dresses
+          </v-btn>
+        </router-link>
+      </p>
+    </div>
+
+    <div class="contact-us">
+      <p class="text-center">
+        Enjoy exploring our website and feel welcome to make contact with Kerry.
+        <v-divider></v-divider>
+        <router-link to="/contact_us">
+          <v-btn 
+            class="parallax-btn"
+            color="#FFFFFFe0"
+            min-height="70"
+            min-width="150">
+            Contact
+          </v-btn>
+        </router-link>
+      </p>
+    </div>
+
   </div>
 </template>
 
@@ -110,7 +144,7 @@ a:hover {
 }
 
 .home-p {
-  background-color: #e9ecea;
+  background-color:white;
 }
 
 .home-p p.text-center {
@@ -119,6 +153,15 @@ a:hover {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   padding: 8vw 15vw;
   margin-bottom: 0;
+}
+
+.where-you-going {
+  padding: 8vw 25vw;
+}
+
+.contact-us {
+  padding: 8vw 25vw;
+  background-color: #b0954580;
 }
 
 .home-content .project-overlay > h1 {

@@ -17,7 +17,7 @@
                     </b-col>
                     <b-col md="6">
                       <b-card-body :title="card.title">
-                        <b-card-text style="text-align:justify;">
+                        <b-card-text class="where-card-text" style="text-align:justify;">
                           {{ card.content }}
                         </b-card-text>
                       </b-card-body>
@@ -135,5 +135,16 @@ export default {
     z-index: 1;
     left:0;
     top:40%;
+  }
+  .where-card-text{
+    color: #777;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  }
+
+  .card-title{
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color: #c8a338;
   }
 </style>

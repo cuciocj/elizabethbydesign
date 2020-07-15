@@ -12,14 +12,6 @@
       </v-row>
     </v-parallax>
 
-    <div class="home-p">
-      <p class="text-center">
-        "At Elizabeth by Design, we work with mature
-        women to design a style that works for you."
-        <v-divider></v-divider>
-      </p>
-    </div>
-
     <v-parallax dark :src="elderWoman" height="600">
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
@@ -27,7 +19,7 @@
           <h4
             class="parallax-sub1 subheading"
           >{{ jumbotronStyle.subheader }}</h4>
-          <router-link to="/style">
+          <router-link to="/where">
             <v-btn
               class="parallax-btn"
               color="#FFFFFFe0"
@@ -39,18 +31,77 @@
       </v-row>
     </v-parallax>
 
-    <div class="where-you-going">
+    <v-parallax dark :src="jumboImage" height="600">
+      <v-row align="center" justify="center">
+        <v-col class="text-center" cols="12">
+          <h1 class="parallax-1 display-1 font-weight-thin m-5">{{ jumbotronAboutus.header }}</h1>
+          <h4 class="parallax-sub1 subheading">{{ jumbotronAboutus.subheader }}</h4>
+          <router-link to="/about_us">
+            <v-btn class="parallax-btn" color="#FFFFFFe0" min-height="70" min-width="150">More</v-btn>
+          </router-link>
+        </v-col>
+      </v-row>
+    </v-parallax>
+
+    <v-parallax dark :src="elderWoman" height="600">
+      <v-row align="center" justify="center">
+        <v-col class="text-center" cols="12">
+          <h1 class="parallax-2 display-3 font-weight-thin m-5">{{ jumbotronStyle.header }}</h1>
+          <h4
+            class="parallax-sub1 subheading"
+          >{{ jumbotronStyle.subheader }}</h4>
+          <router-link to="/where">
+            <v-btn
+              class="parallax-btn"
+              color="#FFFFFFe0"
+              min-height="70"
+              min-width="150"
+            >Let us help</v-btn>
+          </router-link>
+        </v-col>
+      </v-row>
+    </v-parallax>
+
+    <v-parallax dark :src="jumboImage" height="600">
+      <v-row align="center" justify="center">
+        <v-col class="text-center" cols="12">
+          <h1 class="parallax-1 display-1 font-weight-thin m-5">{{ jumbotronAboutus.header }}</h1>
+          <h4 class="parallax-sub1 subheading">{{ jumbotronAboutus.subheader }}</h4>
+          <router-link to="/about_us">
+            <v-btn class="parallax-btn" color="#FFFFFFe0" min-height="70" min-width="150">More</v-btn>
+          </router-link>
+        </v-col>
+      </v-row>
+    </v-parallax>
+
+    <!-- <div class="contact-us">
       <p class="text-center">
         We do not sell off the shelf garments. Rather we
         design and make to measure. Each garment is unique to your requirements.
         <v-divider></v-divider>
-        <router-link to="/where">
+        <router-link to="/style">
           <v-btn 
             class="parallax-btn"
             color="#FFFFFFe0"
             min-height="70"
             min-width="150">
-            Check out dresses
+            Check out dresses  
+          </v-btn>
+        </router-link>
+      </p>
+    </div>
+
+    <div class="where-you-going">
+      <p class="text-center">
+        At Elizabeth by Design, we work with mature women to design a style that works for you.
+        <v-divider></v-divider>
+        <router-link to="/measuerements">
+          <v-btn 
+            class="parallax-btn"
+            color="#FFFFFFe0"
+            min-height="70"
+            min-width="150">
+            Measurements
           </v-btn>
         </router-link>
       </p>
@@ -70,7 +121,7 @@
           </v-btn>
         </router-link>
       </p>
-    </div>
+    </div> -->
 
   </div>
 </template>

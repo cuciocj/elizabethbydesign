@@ -70,6 +70,7 @@ export default {
       axios
         .get(endpoint)
         .then((res) => {
+          delete res.data["_id"];
           this.object = res;
         })
         .catch((error) => {

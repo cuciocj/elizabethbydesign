@@ -14,117 +14,6 @@
       </v-row>
     </v-parallax>
 
-    <!-- <v-parallax dark :src="elderWoman" height="600">
-      <v-row align="center" justify="center">
-        <v-col class="text-center" cols="12">
-          <h1 class="parallax-2 display-3 font-weight-thin m-5">{{ jumbotronStyle.header }}</h1>
-          <h4
-            class="parallax-sub1 subheading"
-          >{{ jumbotronStyle.subheader }}</h4>
-          <router-link to="/where">
-            <v-btn
-              class="parallax-btn"
-              color="#FFFFFFe0"
-              min-height="70"
-              min-width="150"
-            >Let us help</v-btn>
-          </router-link>
-        </v-col>
-      </v-row>
-    </v-parallax>
-
-    <v-parallax dark :src="jumboImage" height="600">
-      <v-row align="center" justify="center">
-        <v-col class="text-center" cols="12">
-          <h1 class="parallax-1 display-1 font-weight-thin m-5">{{ jumbotronAboutus.header }}</h1>
-          <h4 class="parallax-sub1 subheading">{{ jumbotronAboutus.subheader }}</h4>
-          <router-link to="/about_us">
-            <v-btn class="parallax-btn" color="#FFFFFFe0" min-height="70" min-width="150">More</v-btn>
-          </router-link>
-        </v-col>
-      </v-row>
-    </v-parallax>
-
-    <v-parallax dark :src="elderWoman" height="600">
-      <v-row align="center" justify="center">
-        <v-col class="text-center" cols="12">
-          <h1 class="parallax-2 display-3 font-weight-thin m-5">{{ jumbotronStyle.header }}</h1>
-          <h4
-            class="parallax-sub1 subheading"
-          >{{ jumbotronStyle.subheader }}</h4>
-          <router-link to="/where">
-            <v-btn
-              class="parallax-btn"
-              color="#FFFFFFe0"
-              min-height="70"
-              min-width="150"
-            >Let us help</v-btn>
-          </router-link>
-        </v-col>
-      </v-row>
-    </v-parallax>
-
-    <v-parallax dark :src="jumboImage" height="600">
-      <v-row align="center" justify="center">
-        <v-col class="text-center" cols="12">
-          <h1 class="parallax-1 display-1 font-weight-thin m-5">{{ jumbotronAboutus.header }}</h1>
-          <h4 class="parallax-sub1 subheading">{{ jumbotronAboutus.subheader }}</h4>
-          <router-link to="/about_us">
-            <v-btn class="parallax-btn" color="#FFFFFFe0" min-height="70" min-width="150">More</v-btn>
-          </router-link>
-        </v-col>
-      </v-row>
-    </v-parallax> -->
-
-    <!-- <div class="contact-us">
-      <p class="text-center">
-        We do not sell off the shelf garments. Rather we
-        design and make to measure. Each garment is unique to your requirements.
-        <v-divider></v-divider>
-        <router-link to="/style">
-          <v-btn 
-            class="parallax-btn"
-            color="#FFFFFFe0"
-            min-height="70"
-            min-width="150">
-            Check out dresses  
-          </v-btn>
-        </router-link>
-      </p>
-    </div>
-
-    <div class="where-you-going">
-      <p class="text-center">
-        At Elizabeth by Design, we work with mature women to design a style that works for you.
-        <v-divider></v-divider>
-        <router-link to="/measuerements">
-          <v-btn 
-            class="parallax-btn"
-            color="#FFFFFFe0"
-            min-height="70"
-            min-width="150">
-            Measurements
-          </v-btn>
-        </router-link>
-      </p>
-    </div>
-
-    <div class="contact-us">
-      <p class="text-center">
-        Enjoy exploring our website and feel welcome to make contact with Kerry.
-        <v-divider></v-divider>
-        <router-link to="/contact_us">
-          <v-btn 
-            class="parallax-btn"
-            color="#FFFFFFe0"
-            min-height="70"
-            min-width="150">
-            Contact
-          </v-btn>
-        </router-link>
-      </p>
-    </div> -->
-
   </div>
 </template>
 
@@ -137,16 +26,6 @@ export default {
   data() {
     return {
       object: "",
-      // jumboImage: background1,
-      // elderWoman: background2,
-      // jumbotronAboutus: {
-      //   header: '',
-      //   subheader: '',
-      // },
-      // jumbotronStyle: {
-      //   header: '',
-      //   subheader: ''
-      // }
     };
   },
   methods: {
@@ -154,11 +33,8 @@ export default {
       const endpoint = 'http://localhost:5000/home';
       axios.get(endpoint)
         .then((res) => {
+          delete res.data["_id"];
           this.object = res;
-          // this.jumbotronAboutus.header = res.data.jumbotron_aboutus.header;
-          // this.jumbotronAboutus.subheader = res.data.jumbotron_aboutus.subheader;
-          // this.jumbotronStyle.header = res.data.jumbotron_style.header;
-          // this.jumbotronStyle.subheader = res.data.jumbotron_style.subheader;
         })
         .catch((error) => {
           console.error(error);

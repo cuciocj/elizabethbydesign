@@ -1,18 +1,20 @@
 <template>
   <div class="home-content">
-    <v-parallax dark :src="jumboImage" height="600">
+
+    <v-parallax dark v-for="jumbotron in object.data" :key="jumbotron" :src="jumbotron.img" height="600">
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
-          <h1 class="parallax-1 display-1 font-weight-thin m-5">{{ jumbotronAboutus.header }}</h1>
-          <h4 class="parallax-sub1 subheading">{{ jumbotronAboutus.subheader }}</h4>
-          <router-link to="/about_us">
-            <v-btn class="parallax-btn" color="#FFFFFFe0" min-height="70" min-width="150">More</v-btn>
+          <h1 class="parallax-1 display-1 font-weight-thin m-5" v-if="jumbotron.ref == 'jumbotron1'">{{ jumbotron.title }}</h1>
+          <h1 class="parallax-2 display-3 font-weight-thin m-5" v-if="jumbotron.ref != 'jumbotron1'">{{ jumbotron.title }}</h1>
+          <h4 class="parallax-sub1 subheading">{{ jumbotron.content }}</h4>
+          <router-link :to="jumbotron.router">
+            <v-btn class="parallax-btn" color="#FFFFFFe0" min-height="70" min-width="150">{{ jumbotron.button}}</v-btn>
           </router-link>
         </v-col>
       </v-row>
     </v-parallax>
 
-    <v-parallax dark :src="elderWoman" height="600">
+    <!-- <v-parallax dark :src="elderWoman" height="600">
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
           <h1 class="parallax-2 display-3 font-weight-thin m-5">{{ jumbotronStyle.header }}</h1>
@@ -72,7 +74,7 @@
           </router-link>
         </v-col>
       </v-row>
-    </v-parallax>
+    </v-parallax> -->
 
     <!-- <div class="contact-us">
       <p class="text-center">
@@ -134,16 +136,17 @@ import background2 from "@/assets/home2.jpg";
 export default {
   data() {
     return {
-      jumboImage: background1,
-      elderWoman: background2,
-      jumbotronAboutus: {
-        header: '',
-        subheader: '',
-      },
-      jumbotronStyle: {
-        header: '',
-        subheader: ''
-      }
+      object: "",
+      // jumboImage: background1,
+      // elderWoman: background2,
+      // jumbotronAboutus: {
+      //   header: '',
+      //   subheader: '',
+      // },
+      // jumbotronStyle: {
+      //   header: '',
+      //   subheader: ''
+      // }
     };
   },
   methods: {
@@ -151,10 +154,11 @@ export default {
       const endpoint = 'http://localhost:5000/home';
       axios.get(endpoint)
         .then((res) => {
-          this.jumbotronAboutus.header = res.data.jumbotron_aboutus.header;
-          this.jumbotronAboutus.subheader = res.data.jumbotron_aboutus.subheader;
-          this.jumbotronStyle.header = res.data.jumbotron_style.header;
-          this.jumbotronStyle.subheader = res.data.jumbotron_style.subheader;
+          this.object = res;
+          // this.jumbotronAboutus.header = res.data.jumbotron_aboutus.header;
+          // this.jumbotronAboutus.subheader = res.data.jumbotron_aboutus.subheader;
+          // this.jumbotronStyle.header = res.data.jumbotron_style.header;
+          // this.jumbotronStyle.subheader = res.data.jumbotron_style.subheader;
         })
         .catch((error) => {
           console.error(error);

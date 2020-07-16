@@ -18,7 +18,7 @@
                     <b-col md="6">
                       <b-card-body :title="card.title">
                         <b-card-text class="where-card-text" style="text-align:justify;">
-                          {{ card.content }}
+                          <p v-html="card.content"></p>
                         </b-card-text>
                       </b-card-body>
                     </b-col>

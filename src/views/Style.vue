@@ -4,8 +4,8 @@
       <b-col cols="8">
         <fieldset class="intro">
           <legend class="intro-title">{{ introFieldset.title }}</legend>
-          <p class="intro-text" v-for="(text, index) in introFieldset.texts" :key="index" >
-            {{ text }}
+          <p class="intro-text">
+            <span v-html="format(introFieldset.text)"></span>
           </p>
         </fieldset>
       </b-col>
@@ -25,24 +25,24 @@
       <b-col cols="3">
         <fieldset class="intro">
           <legend class="intro-title">Step One</legend>
-          <p class="intro-text" v-for="(text, index) in styleSteps.stepOne" :key="index" >
-            {{ text }}
+          <p class="intro-text">
+            <span v-html="format(styleSteps.stepOne)"></span>
           </p>
         </fieldset>
       </b-col>
       <b-col cols="3">
         <fieldset class="intro">
           <legend class="intro-title">Step Two</legend>
-          <p class="intro-text" v-for="(text, index) in styleSteps.stepTwo" :key="index" >
-            {{ text }}
+          <p class="intro-text">
+            <span v-html="format(styleSteps.stepTwo)"></span>
           </p>
         </fieldset>
       </b-col>
-            <b-col cols="3">
+      <b-col cols="3">
         <fieldset class="intro">
           <legend class="intro-title">Step Three</legend>
-          <p class="intro-text" v-for="(text, index) in styleSteps.stepThree" :key="index" >
-            {{ text }}
+          <p class="intro-text">
+            <span v-html="format(styleSteps.stepThree)"></span>
           </p>
           <br>
         </fieldset>
@@ -52,8 +52,8 @@
       <b-col cols="3">
         <fieldset class="intro">
           <legend class="intro-title">Step Four</legend>
-          <p class="intro-text" v-for="(text, index) in styleSteps.stepFour" :key="index" >
-            {{ text }}
+          <p class="intro-text">
+            <span v-html="format(styleSteps.stepFour)"></span>
           </p>
         </fieldset>
       </b-col>
@@ -63,8 +63,8 @@
       <b-col cols="3">
         <fieldset class="intro">
           <legend class="intro-title">Step Five</legend>
-          <p class="intro-text" v-for="(text, index) in styleSteps.stepFive" :key="index" >
-            {{ text }}
+          <p class="intro-text">
+            <span v-html="format(styleSteps.stepFive)"></span>
           </p>
           <br>
         </fieldset>
@@ -97,8 +97,8 @@
       <b-col cols="5">
         <fieldset class="intro">
           <legend class="intro-title">{{ gettingStarted.intro.title }}</legend>
-          <p class="intro-text" v-for="(text, index) in gettingStarted.intro.texts" :key="index" >
-            {{ text }}
+          <p class="intro-text">
+            <span v-html="format(gettingStarted.intro.text)"></span>
           </p>
         </fieldset>
       </b-col>
@@ -110,8 +110,8 @@
       <b-col cols="5">
         <fieldset class="intro">
           <legend class="intro-title">{{ gettingStarted.steps.title }}</legend>
-          <p class="intro-text" v-for="(text, index) in gettingStarted.steps.texts" :key="index" >
-            {{ text }}
+          <p class="intro-text">
+            <span v-html="format(gettingStarted.steps.text)"></span>
           </p>
         </fieldset>
       </b-col>
@@ -123,8 +123,8 @@
       <b-col cols="5">
         <fieldset class="intro">
           <legend class="intro-title">{{ gettingStarted.questions.title }}</legend>
-          <p class="intro-text" v-for="(text, index) in gettingStarted.questions.texts" :key="index" >
-            {{ text }}
+          <p class="intro-text">
+            <span v-html="format(gettingStarted.questions.text)"></span>
           </p>
         </fieldset>
       </b-col>
@@ -180,6 +180,9 @@ export default {
         .catch((error) => {
           console.error(error);
         });
+    },
+    format(text) {
+      return text ? text.replace(/\\n/g, '<br>') : '';
     }
   },
   created() {

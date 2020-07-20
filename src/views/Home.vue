@@ -19,8 +19,6 @@
 
 <script>
 import axios from 'axios';
-import background1 from "@/assets/home1.jpg";
-import background2 from "@/assets/home2.jpg";
 
 export default {
   data() {

@@ -266,7 +266,6 @@ export default {
       const endpoint = 'http://localhost:5000/footer';
       axios.get(endpoint)
         .then((res) => {
-          console.log(res);
           this.info.address = res.data.info.address;
           this.info.email = res.data.info.email;
           this.info.mobile = res.data.info.mobile;

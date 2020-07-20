@@ -44,8 +44,8 @@ export default {
   data() {
     return {
       object: "",
-       arrow_initial: true,
-       arrow_hover: false
+      arrow_initial: true,
+      arrow_hover: false
     };
   },
   methods: {

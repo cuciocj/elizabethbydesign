@@ -6,15 +6,14 @@
         <h1>{{ header }}</h1>
         <p class="text-center">{{ subheading }}</p>
         <div class="text-center">
-          <b-button
-            pill
-            size="lg"
-            variant="secondary"
-            onclick="Calendly.initPopupWidget({url: 'https://calendly.com/cuciocj/60min'});return false;"
+          <v-btn
+            color="normal"
+            x-large
+            @click="calendlyOnClick"
             class="calendly-btn"
           >
           Book an appointment with Kerry
-          </b-button>
+          </v-btn>
         </div>
       </div>
       <b-img
@@ -86,16 +85,6 @@
     </b-container>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      
-    };
-  }
-};
-</script>
 
 <style>
 div.keep-touch {
@@ -170,7 +159,21 @@ p {
 
 <script>
 import axios from 'axios';
-import bgImage from "@/assets/computer-keyboard-3.jpg"
+import bgImage from "@/assets/computer-keyboard-3.jpg";
+
+var calendlyInputCheckerTimer =  null;
+
+const setInputNameEmail = function() {
+  console.log(document.getElementsByName("full_name"));
+  if(document.getElementsByName("full_name")[0] !== undefined && document.getElementsByName("email")[0] !== undefined){
+    // set user inputs in name and email input
+    document.getElementsByName("full_name")[0].value = "<user full name>";
+    document.getElementsByName("email")[0].value = "<user email>";
+    console.log('PASOK SA BANGA');
+    // stop setInterval timer
+    clearInterval(calendlyInputCheckerTimer);
+  }
+}
 
 export default {
   data() {
@@ -193,6 +196,7 @@ export default {
             twitter: '',
           },
         },
+        calendlyApi: '',
       },
     };
   },
@@ -203,8 +207,9 @@ export default {
         .then((res) => {
           this.header = res.data.header;
           this.subheading = res.data.subheader;
-          this.keepInTouch.header = res.data.keepInTouch.header,
-          this.keepInTouch.subheading = res.data.keepInTouch.subheading,
+          this.keepInTouch.calendlyApi = res.data.calendlyApi;
+          this.keepInTouch.header = res.data.keepInTouch.header;
+          this.keepInTouch.subheading = res.data.keepInTouch.subheading;
           this.keepInTouch.contactInfo.info.address = res.data.contactInfo[0].info.address;
           this.keepInTouch.contactInfo.info.email = res.data.contactInfo[0].info.email;
           this.keepInTouch.contactInfo.info.mobile = res.data.contactInfo[0].info.mobile;
@@ -215,6 +220,12 @@ export default {
         .catch((error) => {
           console.error(error);
         });
+    },
+    calendlyOnClick() {
+      //console.log(this.keepInTouch.calendlyApi);
+      Calendly.initPopupWidget({url: this.keepInTouch.calendlyApi});
+      // calendlyInputCheckerTimer = setInterval(setInputNameEmail, 3000);
+      return false;
     }
   },
   created() {

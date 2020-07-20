@@ -222,7 +222,6 @@ export default {
         });
     },
     calendlyOnClick() {
-      //console.log(this.keepInTouch.calendlyApi);
       Calendly.initPopupWidget({url: this.keepInTouch.calendlyApi});
       // calendlyInputCheckerTimer = setInterval(setInputNameEmail, 3000);
       return false;

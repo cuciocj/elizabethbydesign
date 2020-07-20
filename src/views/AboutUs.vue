@@ -9,8 +9,8 @@
       <b-col>
         <fieldset class="intro">
           <legend class="intro-title">{{ card_1.title }}</legend>
-          <p class="intro-text" v-for="(text, index) in card_1.texts" :key="index">
-            {{ text }}
+          <p class="intro-text">
+            <span v-html="format(card_1.text)"></span>
           </p>
         </fieldset>
       </b-col>
@@ -19,8 +19,8 @@
     <b-row>
       <b-col>
         <fieldset class="intro">
-          <p class="intro-text" v-for="(text, index) in card_2.texts" :key="index">
-            {{ text }}
+          <p class="intro-text">
+            <span v-html="format(card_2.text)"></span>
           </p>
         </fieldset>
       </b-col>
@@ -37,8 +37,8 @@
 
       <b-col>
         <fieldset class="intro">
-          <p class="intro-text" v-for="(text, index) in card_3.texts" :key="index">
-            {{ text }}
+          <p class="intro-text">
+            <span v-html="format(card_3.text)"></span>
           </p>
         </fieldset>
       </b-col>
@@ -49,8 +49,8 @@
       <b-col class="first-row-col">
         <fieldset class="intro">
           <legend class="intro-title">{{ banner.title }}</legend>
-          <p class="intro-text" v-for="(text, index) in banner.texts" :key="index" >
-            {{ text }}
+          <p class="intro-text">
+            <span v-html="format(banner.text)"></span>
           </p>
         </fieldset>
       </b-col>
@@ -60,8 +60,8 @@
       <b-col class="first-row-col" v-for="(timeline, index) in timelines" :key="index">
         <fieldset class="intro">
           <legend class="intro-title">{{ timeline.title }}</legend>
-          <p class="intro-text" v-for="(text, index) in timeline.texts" :key="index">
-            {{ text }}
+          <p class="intro-text">
+            <span v-html="format(timeline.text)"></span>
           </p>
         </fieldset>
       </b-col>
@@ -76,22 +76,10 @@ import axios from "axios";
 export default {
   data() {
     return {
-      card_1: {
-        title: "",
-        texts: []
-      },
-      card_2: {
-        title: "",
-        texts: []
-      },
-      card_3: {
-        title: "",
-        texts: []
-      },
-      banner: {
-        title: "",
-        texts: []
-      },
+      card_1: {},
+      card_2: {},
+      card_3: {},
+      banner: {},
       timelines: []
     };
   },
@@ -102,23 +90,22 @@ export default {
         .get(endpoint)
         .then((res) => {
           console.log(res);
-          this.card_1.title = res.data.card_1.title;
-          this.card_1.texts = res.data.card_1.texts;
-          this.card_2.title = res.data.card_2.title;
-          this.card_2.texts = res.data.card_2.texts;
-          this.card_3.title = res.data.card_3.title;
-          this.card_3.texts = res.data.card_3.texts;
-          this.banner.title = res.data.banner.title;
-          this.banner.texts = res.data.banner.texts;
+          this.card_1 = res.data.card_1;
+          this.card_2 = res.data.card_2;
+          this.card_3 = res.data.card_3;
+          this.banner = res.data.banner;
           this.timelines = res.data.timelines;
         })
         .catch(error => {
           console.error(error);
         });
+    },
+    format(text) {
+      return text ? text.replace(/\\n/g, '<br>') : '';
     }
   },
   created() {
     this.getAboutUsInfo();
-  }
+  },
 };
 </script>

@@ -1,31 +1,66 @@
 <template>
   <div class="contact-content">
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
     <div class="img-overlay">
       <div class="project-overlay">
         <h1>{{ header }}</h1>
         <p class="text-center">{{ subheading }}</p>
-        <div class="text-center">
-          <v-btn
-            color="normal"
-            x-large
-            @click="calendlyOnClick"
-            class="calendly-btn"
-          >
-          Book an appointment with Kerry
-          </v-btn>
-        </div>
       </div>
-      <b-img
-        id="bg-image"
-        :src="contactUsBgImage"
-        alt="keyboard-type"
-        fluid-grow
-      ></b-img>
+      <b-img id="bg-image" :src="contactUsBgImage" alt="keyboard-type" fluid-grow></b-img>
     </div>
-    <b-container>
+    <v-container fluid>
+     <v-form>
+      <v-container>
       <div class="keep-touch">
         <h4>{{ keepInTouch.header }}</h4>
+      </div>
+        <v-row>
+          <v-col>
+          </v-col>
+          <v-col sm="4">
+            <v-form 
+              ref="form"
+              v-model="valid"
+              :lazy-validation="lazy"
+            >
+              <v-text-field
+                v-model="formData.name"
+                :rules="[textfieldRule.required]"
+                label="Name"
+                filled
+                required
+              ></v-text-field>
+              <v-text-field
+                v-model="formData.email"
+                :rules="[textfieldRule.required, textfieldRule.email]"
+                label="Email"
+                filled
+                required
+              ></v-text-field>
+              <v-text-field
+                v-model="formData.phone"
+                :rules="[textfieldRule.required]"
+                label="Phone"
+                filled
+                required
+              ></v-text-field>
+                <v-btn
+                  :disabled="!valid"
+                  @click="calendlyOnClick"
+                  class="calendly-btn"
+                  color="normal"
+                  x-large
+                >Book an appointment with Kerry</v-btn>
+            </v-form>
+          </v-col>
+          <v-col>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-form>
+    </v-container>
+    <b-container>
+      <div class="keep-touch">
         <p style="margin: 2vw">{{ keepInTouch.subheading }}</p>
         <b-row>
           <b-col>
@@ -59,9 +94,10 @@
               style="min-height: 10rem;"
             >
               <b-card-text class="keep-touch-links">
-                <a class="email" :href="'mailto:'+keepInTouch.contactInfo.info.email">
-                  {{ keepInTouch.contactInfo.info.email }}
-                </a>
+                <a
+                  class="email"
+                  :href="'mailto:'+keepInTouch.contactInfo.info.email"
+                >{{ keepInTouch.contactInfo.info.email }}</a>
               </b-card-text>
             </b-card>
           </b-col>
@@ -74,9 +110,14 @@
               style="min-height: 10rem;"
             >
               <b-card-text class="keep-touch-links">
-                <span class="mdi mdi-facebook"></span><a :href="keepInTouch.contactInfo.links.facebook">Facebook</a><br>
-                <span class="mdi mdi-instagram"></span><a :href="keepInTouch.contactInfo.links.instagram">Instagram</a><br>
-                <span class="mdi mdi-twitter"></span><a :href="keepInTouch.contactInfo.links.twitter">Twitter</a>
+                <span class="mdi mdi-facebook"></span>
+                <a :href="keepInTouch.contactInfo.links.facebook">Facebook</a>
+                <br />
+                <span class="mdi mdi-instagram"></span>
+                <a :href="keepInTouch.contactInfo.links.instagram">Instagram</a>
+                <br />
+                <span class="mdi mdi-twitter"></span>
+                <a :href="keepInTouch.contactInfo.links.twitter">Twitter</a>
               </b-card-text>
             </b-card>
           </b-col>
@@ -102,7 +143,7 @@ div.keep-touch h4 {
 }
 
 .calendly-btn {
-  margin-top: 2vw;
+  margin-top: 0;
 }
 
 .contact-content .project-overlay > h1 {
@@ -152,79 +193,117 @@ p {
   opacity: 0.9;
 }
 
-.email{
+.email {
   font-size: 95%;
 }
 </style>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 import bgImage from "@/assets/computer-keyboard-3.jpg";
 
-var calendlyInputCheckerTimer =  null;
+var calendlyInputCheckerTimer = null;
 
 const setInputNameEmail = function() {
   console.log(document.getElementsByName("full_name"));
-  if(document.getElementsByName("full_name")[0] !== undefined && document.getElementsByName("email")[0] !== undefined){
+  if (
+    document.getElementsByName("full_name")[0] !== undefined &&
+    document.getElementsByName("email")[0] !== undefined
+  ) {
     // set user inputs in name and email input
     document.getElementsByName("full_name")[0].value = "<user full name>";
     document.getElementsByName("email")[0].value = "<user email>";
-    console.log('PASOK SA BANGA');
+    console.log("PASOK SA BANGA");
     // stop setInterval timer
     clearInterval(calendlyInputCheckerTimer);
   }
-}
+};
 
 export default {
   data() {
     return {
       contactUsBgImage: bgImage,
-      header: '',
-      subheading: '',
+      header: "",
+      subheading: "",
       keepInTouch: {
-        header: '',
-        subheading: '',
+        header: "",
+        subheading: "",
         contactInfo: {
           info: {
-            address: '',
-            email: '',
-            mobile: '',
+            address: "",
+            email: "",
+            mobile: ""
           },
           links: {
-            facebook: '',
-            instagram: '',
-            twitter: '',
-          },
+            facebook: "",
+            instagram: "",
+            twitter: ""
+          }
         },
-        calendlyApi: '',
+        calendlyApi: ""
       },
+      formData: {
+        name: '',
+        email: '',
+        phone: '',
+      },
+      textfieldRule : {
+        required: value => !!value || 'Required.',
+        email: value => {
+          const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          return pattern.test(value) || 'Invalid e-mail.'
+        },
+      },
+      valid: true,
+      lazy: false,
     };
   },
   methods: {
     getContactUsInfo() {
-      const endpoint = 'http://localhost:5000/contact_us';
-      axios.get(endpoint)
-        .then((res) => {
+      const endpoint = "http://localhost:5000/contact_us";
+      axios
+        .get(endpoint)
+        .then(res => {
           this.header = res.data.header;
           this.subheading = res.data.subheader;
           this.keepInTouch.calendlyApi = res.data.calendlyApi;
           this.keepInTouch.header = res.data.keepInTouch.header;
           this.keepInTouch.subheading = res.data.keepInTouch.subheading;
-          this.keepInTouch.contactInfo.info.address = res.data.contactInfo[0].info.address;
-          this.keepInTouch.contactInfo.info.email = res.data.contactInfo[0].info.email;
-          this.keepInTouch.contactInfo.info.mobile = res.data.contactInfo[0].info.mobile;
-          this.keepInTouch.contactInfo.links.facebook = res.data.contactInfo[0].links.facebook;
-          this.keepInTouch.contactInfo.links.instagram = res.data.contactInfo[0].links.instagram;
-          this.keepInTouch.contactInfo.links.twitter = res.data.contactInfo[0].links.twitter;
+          this.keepInTouch.contactInfo.info.address =
+            res.data.contactInfo[0].info.address;
+          this.keepInTouch.contactInfo.info.email =
+            res.data.contactInfo[0].info.email;
+          this.keepInTouch.contactInfo.info.mobile =
+            res.data.contactInfo[0].info.mobile;
+          this.keepInTouch.contactInfo.links.facebook =
+            res.data.contactInfo[0].links.facebook;
+          this.keepInTouch.contactInfo.links.instagram =
+            res.data.contactInfo[0].links.instagram;
+          this.keepInTouch.contactInfo.links.twitter =
+            res.data.contactInfo[0].links.twitter;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
+    calendlyOnClick(e) {
+      e.preventDefault();
+      this.saveFormData();
+      Calendly.initPopupWidget({ url: this.keepInTouch.calendlyApi });
+      // calendlyInputCheckerTimer = setInterval(setInputNameEmail, 3000);
+      return false;
+    },
+    saveFormData() {
+      console.log(JSON.stringify(this.formData, null, 2));
+      const endpoint = "http://localhost:5000/adduser";
+      axios
+        .put(endpoint, this.formData)
+        .then(() => {
+          // this.$refs.form.reset()
         })
         .catch((error) => {
           console.error(error);
         });
-    },
-    calendlyOnClick() {
-      Calendly.initPopupWidget({url: this.keepInTouch.calendlyApi});
-      // calendlyInputCheckerTimer = setInterval(setInputNameEmail, 3000);
-      return false;
     }
   },
   created() {

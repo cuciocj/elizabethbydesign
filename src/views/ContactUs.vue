@@ -246,6 +246,7 @@ export default {
         name: '',
         email: '',
         phone: '',
+        notes: '',
       },
       textfieldRule : {
         required: value => !!value || 'Required.',

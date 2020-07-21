@@ -3,7 +3,7 @@
     <br>
     <b-row>
       <b-col>
-        <v-img :src="require('@/assets/kerry.png')" height="450px" />
+        <v-img :src="require('@/assets/kerry.jpg')" height="450px" />
       </b-col>
 
       <b-col>

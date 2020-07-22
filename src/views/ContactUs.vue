@@ -133,6 +133,10 @@ div.keep-touch {
   color: #737373;
 }
 
+.v-messages__message {
+  color: red;
+}
+
 .keep-touch-links a {
   text-decoration: none;
   color: #737373;
@@ -247,6 +251,7 @@ export default {
         email: '',
         phone: '',
         notes: '',
+        date: '',
       },
       textfieldRule : {
         required: value => !!value || 'Required.',
@@ -297,6 +302,8 @@ export default {
     saveFormData() {
       console.log(JSON.stringify(this.formData, null, 2));
       const endpoint = "http://localhost:5000/adduser";
+      
+      this.formData.date = new Date(Date.now()).toLocaleString().split(",")[0];
       axios
         .put(endpoint, this.formData)
         .then(() => {

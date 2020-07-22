@@ -275,18 +275,12 @@ export default {
           this.keepInTouch.calendlyApi = res.data.calendlyApi;
           this.keepInTouch.header = res.data.keepInTouch.header;
           this.keepInTouch.subheading = res.data.keepInTouch.subheading;
-          this.keepInTouch.contactInfo.info.address =
-            res.data.contactInfo[0].info.address;
-          this.keepInTouch.contactInfo.info.email =
-            res.data.contactInfo[0].info.email;
-          this.keepInTouch.contactInfo.info.mobile =
-            res.data.contactInfo[0].info.mobile;
-          this.keepInTouch.contactInfo.links.facebook =
-            res.data.contactInfo[0].links.facebook;
-          this.keepInTouch.contactInfo.links.instagram =
-            res.data.contactInfo[0].links.instagram;
-          this.keepInTouch.contactInfo.links.twitter =
-            res.data.contactInfo[0].links.twitter;
+          this.keepInTouch.contactInfo.info.address = res.data.contactInfo[0].info.address;
+          this.keepInTouch.contactInfo.info.email = res.data.contactInfo[0].info.email;
+          this.keepInTouch.contactInfo.info.mobile = res.data.contactInfo[0].info.mobile;
+          this.keepInTouch.contactInfo.links.facebook = res.data.contactInfo[0].links.facebook;
+          this.keepInTouch.contactInfo.links.instagram = res.data.contactInfo[0].links.instagram;
+          this.keepInTouch.contactInfo.links.twitter = res.data.contactInfo[0].links.twitter;
         })
         .catch(error => {
           console.error(error);
@@ -302,7 +296,7 @@ export default {
     saveFormData() {
       console.log(JSON.stringify(this.formData, null, 2));
       const endpoint = "http://localhost:5000/adduser";
-      
+
       this.formData.date = new Date(Date.now()).toLocaleString().split(",")[0];
       axios
         .put(endpoint, this.formData)

@@ -12,7 +12,7 @@
     <b-row class="justify-content-md-center" v-for="row in object.data.fieldsets.rows" :key="row" :class="row.class">
       <b-col class="first-row-col" v-for="col in row.cols" :key="col" :cols="col.cols">
         <fieldset class="intro">
-          <legend class="intro-title"> {{ col.title }}</legend>
+          <legend class="intro-title" v-if="col.title != ''"> {{ col.title }}</legend>
           <p class="intro-text">
             {{ col.content }}
           </p>
@@ -47,7 +47,7 @@
     </b-row>
 
     <!-- Modals -->
-    <b-modal v-for="modal in object.data.modals" :key="modal" :id="modal.ref" :title="modal.title" hide-footer>
+    <b-modal v-for="modal in object.data.modals.modals" :key="modal" :id="modal.ref" :title="modal.title" hide-footer>
       <p style="text-align:justify" v-for="(title, propertyName, index) in modal.titles" :key="title">
         <span style="font-weight:bold"> {{ title }} </span> {{ modal.paragraphs['paragraph' + (index + 1)] }}
       </p>

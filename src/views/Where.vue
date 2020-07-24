@@ -13,12 +13,12 @@
                 <b-card border-variant="light" no-body style="width: 540px;">
                   <b-row no-gutters>
                     <b-col md="6">
-                      <b-card-img :src="card.img1" class="rounded-0"></b-card-img>
+                      <b-card-img :src="card.img1" :data-img2="card.img2" class="rounded-0" v-on:mouseover="changeImg" v-on:mouseout="changeImg"></b-card-img>
                     </b-col>
                     <b-col md="6">
                       <b-card-body :title="card.title">
-                        <b-card-text class="where-card-text" style="text-align:justify;">
-                          <p v-html="card.content"></p>
+                        <b-card-text class="where-card-text">
+                          <p style="text-align:justify;" v-html="card.content"></p>
                         </b-card-text>
                       </b-card-body>
                     </b-col>
@@ -45,7 +45,7 @@ export default {
     return {
       object: "",
       arrow_initial: true,
-      arrow_hover: false
+      arrow_hover: false,
     };
   },
   methods: {
@@ -64,6 +64,12 @@ export default {
     },
     scrollToBeginning: function(){
       document.getElementById('nav-scroller').scrollLeft -= 50000;
+    },
+    changeImg: function(){
+      let img1 = event.target.getAttribute('src')
+      let img2 = event.target.getAttribute('data-img2');
+      event.target.setAttribute("src", img2)
+      event.target.setAttribute("data-img2", img1)
     },
     getWhereInfo() {
       const endpoint = "http://localhost:5000/where";

@@ -4,7 +4,7 @@
       <b-tabs pills card fill>
         <b-card-body id="nav-scroller" class="my-content" ref="content" style="position:relative; height:430px;">
 
-          <b-tab v-for="tab in object.data" :key="tab" :title="tab.title" v-on:click="scrollToBeginning">
+          <b-tab v-for="tab in object.data.where" :key="tab" :title="tab.title" v-on:click="scrollToBeginning">
             <b-row :style="{width: tab.width}">
               <b-icon-caret-left data-direction="left" class="arrow-move-left"  font-scale="2" v-if="arrow_initial" v-on:mouseover="startArrowAnimation" ></b-icon-caret-left>
               <b-icon-caret-left-fill class="arrow-move-left" font-scale="2" v-if="arrow_hover" animation="cylon" v-on:mouseout="stopArrowAnimation"></b-icon-caret-left-fill>
